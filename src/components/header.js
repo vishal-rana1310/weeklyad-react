@@ -6,20 +6,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 
 
 function Header() {
-    const [myOptions, setMyOptions] = useState([])
-        const getAllSuggestions =  () => {
-            fetch(`http://192.168.1.8:3000/v1/search?s=${value}`).then((response) => {
-                return response.json()
-            }).then((res) => {
-                console.log(res.data);
-                setMyOptions(data);
-            })
-
-
-        };
-        
-        
-    }
+    
   return (
     <>
         <div className="mobile-nav">
@@ -157,20 +144,7 @@ function Header() {
                         </div>
                     </div>
                     <div className="col-md-6 pt-1 pb-2 search-bar-desk">
-                    <Autocomplete
-                        style={{ width: 500 }}
-                        freeSolo
-                        autoComplete
-                        autoHighlight
-                        options={myOptions}
-                        renderInput={(params) => (
-                        <TextField {...params}
-                            onChange={getDataFromAPI}
-                            variant="outlined"
-                            label="Search Box"
-                        />
-                        )}
-                    />
+                    
                     </div>
                     <div className="col-md-3 menu">
                         <ul className="header-menu d-flex" style={{listStyle: "none"}}>
