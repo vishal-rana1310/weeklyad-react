@@ -16,7 +16,7 @@ const Store = () => {
     }
     useEffect(() => {
         const getAds = async () => {
-            const res = await fetch(`http://192.168.1.8:3000/v1/weeklyAd?storeName=${store}`);
+            const res = await fetch(`http://192.168.1.8:3000/v1/weeklyAd/byStore?storeName=${store}`);
             const data = await res.json();
             console.log(data);
             setAds(data);
@@ -117,7 +117,7 @@ const Store = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3">
-
+                            
                         </div>
                         <div className="col-md-6">
                             <h4 className="mb-3">{storeInfo.storeTitle} Circular and weekly ads</h4>

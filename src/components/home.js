@@ -50,7 +50,7 @@ const Home = () => {
             <div className="container" style={{margin: "auto", justifyContent: "center"}}>
                 <div className="row">
                     <div className="col-md-3">
-
+                        
                     </div>
                     <div className="col-md-6" style={{margin: "auto", justifyContent: "center"}}>
                         <h4 className="mb-3">Top Weekly Ads and Flyers</h4>

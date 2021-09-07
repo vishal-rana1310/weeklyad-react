@@ -1,11 +1,15 @@
 import {useEffect, useState} from "react";
 import ReactPaginate from 'react-paginate';
-import { useRouteMatch } from "react-router-dom";
+import { Router, useParams, useRouteMatch } from "react-router-dom";
 import  '../App.css';
-const NewPagination = () => {
+const NewPage = () => {
     
+
+    const{page} = useParams()
     const [items, setItems] = useState([])
+
     let {path , url} = useRouteMatch()
+
     const[backgroundPosition,setBackground] = useState('0% 0%')
     const state = {
         backgroundImage: `url(${items})`,
@@ -22,7 +26,7 @@ const NewPagination = () => {
     const [totalPage,setTotalPages] = useState(1)
     useEffect(() => {
         const getFlyers = async () => {
-            const res = await fetch(`http://192.168.1.8:3000/v1/weeklyAd?adName=Weekly-ad-21-21-2&limit=1`);
+            const res = await fetch(`http://192.168.1.8:3000/v1/weeklyAd?adName=Weekly-ad-21-21-2&limit=${page}`);
             const json = await res.json();
             setData(json)
             setTotalPages(json.data.fullImageLink.length)
@@ -36,8 +40,8 @@ const NewPagination = () => {
    
     const handlePageClick = async (datas) => {
         let currentPage = datas.selected + 1;
-        window.location.replace(url+"/"+currentPage);
-        
+     const   imageUrl = url.substring(0, url.lastIndexOf("/") + 1);
+        window.location.replace(imageUrl+currentPage);
     }
     return(
         <>
@@ -72,7 +76,7 @@ const NewPagination = () => {
                                 breakClassName = {'page-item'}
                                 breakLinkClassName = {'page-link'}
                                 activeClassName = {'active'}
-                                forcePage = {currentp -1 }
+                                forcePage = {page -1 }
                             />
                             
                                 
@@ -108,7 +112,7 @@ const NewPagination = () => {
                                 breakClassName = {'page-item'}
                                 breakLinkClassName = {'page-link'}
                                 activeClassName = {'active'}
-                                forcePage = {currentp - 1}
+                                forcePage = {page - 1}
 
                             />
                             
@@ -123,4 +127,4 @@ const NewPagination = () => {
     )
     
 }
-export default NewPagination;
+export default NewPage;

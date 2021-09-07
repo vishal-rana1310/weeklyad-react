@@ -1,12 +1,42 @@
 import React, {useState, useEffect} from 'react';
 import  '../App.css';
-import TextField from '@material-ui/core/TextField';
+import Autosuggest from 'react-autosuggest';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 
 
 function Header() {
+    const [value, setValue] = useState("")
+    const getUserInput = (e) => {
+        if(e.target.value === "" || e.target.value === " "){
+            setValue("")
+        }
+        else{
+            setValue(e.target.value)
+        }
+        
+    };
     
+    const [storeOptions, setStoreOptions] = useState([])
+    const [weeklyAdSuggest, setWeeklyAdSuggest] = useState([])
+    useEffect(() => {
+        const getAllSuggestions = async () => {
+            const res = await fetch(`http://192.168.1.8:3000/v1/search?s=${value}`);
+            const data = await res.json();
+            setStoreOptions(data.stores);
+            setWeeklyAdSuggest(data.weeklyads)
+
+
+        };
+        
+        getAllSuggestions();
+        
+    }, [])
+    const options = storeOptions.map((item) => item.storeTitle)
+    weeklyAdSuggest.map((item) => {
+        options.push(item.adTitle)
+    })
+    console.log(options)
   return (
     <>
         <div className="mobile-nav">
@@ -144,7 +174,15 @@ function Header() {
                         </div>
                     </div>
                     <div className="col-md-6 pt-1 pb-2 search-bar-desk">
-                    
+                    <Autocomplete
+                        id="custom-input-demo"
+                        options={options}
+                        renderInput={(params) => (
+                            <div ref={params.InputProps.ref} className="search-box">
+                                <input onChange={getUserInput} placeholder="Search..." type="text" {...params.inputProps} />
+                            </div>
+                        )}
+                    />
                     </div>
                     <div className="col-md-3 menu">
                         <ul className="header-menu d-flex" style={{listStyle: "none"}}>
@@ -166,7 +204,7 @@ function Header() {
                     <li>
                         
                         <a href="/categories/Gadgets">
-                        <img src="../images/topoffers.png" alt="" style={{width: "60px"}}/>
+                        <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="" style={{width: "60px"}}/>
                         
                         <br/>
                         <a>Gadgets</a>

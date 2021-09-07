@@ -11,6 +11,7 @@ import Categories from './components/categories';
 import CategoryStores from './components/category-stores';
 import Store from './components/store';
 import NewPagination from './components/newpagination';
+import NewPage from './components/newpage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
     <Route exact path="/categories/:categoryName" component={CategoryStores} />
     <Route exact path="/:store" component={Store} />
     <Route exact path="/:Store/:adname" component={NewPagination} />
+    <Route exact path="/:Store/:adname/:page" component={NewPage} />
     
     </Switch>
     <Footer/>

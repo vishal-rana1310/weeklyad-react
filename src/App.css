@@ -455,7 +455,68 @@ footer a{
   border-radius: 5px;
   border: none;
 }
+.categorywise-store-list{
+  background: white;
+  padding: 0.9rem;
+  margin-right: 1rem;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+}
+.categorywise-store-list ul li a{
+  color: rgb(59, 59, 59) !important;
+}
+.subscription-form{
+  background: white;
+  padding: 0.9rem;
+  margin-right: 1rem;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  text-align: center;
+}
+.subscription-form input{
+  border-radius: 25px;
+  border: none;
+  border: 1px solid rgb(190, 190, 190);
+  padding-left: 10px;
+  width: 90%;
+  height: 30px;
+  font-size: 14px;
+}
+.subscription-form i{
+  color:  #bcd5fd;
+}
+.subscription-form input:focus{
+  outline: none;
+}
+.subscription-form button{
+  width: 90%;
+  font-weight: 700;
+}
+@media only screen and (max-width: 1200px){
+  ul.categories{
+    justify-content: space-between;
+    overflow-x: scroll;
+  }
+  .dropdown-cate-menu{
+    display: none !important;
+  }
+  .top-stores-row .col-md-3{
+    width: 32% !important;
+  }
+  button.view-offer{
+    padding: 0.1rem 1rem;
+  }
+  .card-detail span{
+    font-size: 10px !important;
+  }
+  footer h3{
+    font-size: 20px;
+  }
+}
 @media only screen and (max-width: 576px){
+  .sidebar{
+    display: none;
+  }
   .page-item{
     margin: 0 0.1rem;
   }

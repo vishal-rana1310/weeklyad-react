@@ -26,11 +26,34 @@ const CategoryStores = () => {
             <div className="container-fluid pt-5 pb-5" style={{background: "#f2fdfc"}}>
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-3">
-
+                        <div className="col-md-3 sidebar">
+                            <div className="categorywise-store-list">
+                                <h5>{categoryName}</h5>
+                                <ul>
+                                    {
+                                        store.map((item) => {
+                                            return(
+                                                <li><a href={"/"+item.storeTitle}>{item.storeTitle}</a></li>
+                                            )
+                                        })
+                                    }
+                                    
+                        
+                                </ul>
+                            </div>
+                            <div className="subscription-form mt-3 pt-5 pb-5">
+                                
+                                <i class="fa fa-envelope-o" aria-hidden="true" style={{fontSize:"100px"}}></i>
+                                <p>Subscribe to our offers</p>
+                                <input type="text" placeholder="Enter email.."/>
+                                <button className="subscribe mt-3">
+                
+                                      Subscribe
+                                </button>
+                            </div>
                         </div>
                         <div className="col-md-6">
-                            <h4 className="mb-3">{categoryName}</h4>
+                            <h4 className="mb-3">Best offers from category {categoryName}</h4>
                             <div className="row top-stores-row">
                                 {
                                     store.map((item) => {
