@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.js";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./components/home";
+import Header from './components/header';
+import Footer from './components/footer';
+import Stores from './components/stores';
+import Categories from './components/categories';
+import CategoryStores from './components/category-stores';
+import Store from './components/store';
+import NewPagination from './components/newpagination';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+    <Router>
+    <Header/>
+    <Switch>
+    <Route exact path="/" component={Home} />
+    <Route exact path="/stores" component={Stores} />
+    <Route exact path="/categories" component={Categories} />
+    <Route exact path="/categories/:categoryName" component={CategoryStores} />
+    <Route exact path="/:store" component={Store} />
+    <Route exact path="/:Store/:adname" component={NewPagination} />
+    
+    </Switch>
+    <Footer/>
+    </Router>
+    </React.Fragment>
   );
 }
 
