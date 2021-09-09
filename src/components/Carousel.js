@@ -9,7 +9,7 @@ function SampleNextArrow(props) {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "white", color:"black", height:"50px", width:"50px", borderRadius:"50%", display:"grid", placeItems:"center", zIndex:"1000", marginRight:"10px", boxShadow:"0px 0px 10px rgba(180,180,180,0.6)" }}
+        style={{ ...style, display: "block", background: "white", color:"black", height:"50px", width:"50px", borderRadius:"50%", display:"grid", placeItems:"center", zIndex:"1000", marginRight:"20px", boxShadow:"0px 0px 10px rgba(180,180,180,0.6)" }}
         onClick={onClick}
       />
           
@@ -24,7 +24,7 @@ function SampleNextArrow(props) {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "white", color:"black", height:"50px", width:"50px", borderRadius:"50%", display:"grid", placeItems:"center", zIndex:"1000", marginLeft:"10px", boxShadow:"0px 0px 10px rgba(180,180,180,0.6)"  }}
+        style={{ ...style, display: "block", background: "white", color:"black", height:"50px", width:"50px", borderRadius:"50%", display:"grid", placeItems:"center", zIndex:"1000", marginLeft:"20px", boxShadow:"0px 0px 10px rgba(180,180,180,0.6)"  }}
         onClick={onClick}
       />
     );

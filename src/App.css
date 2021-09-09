@@ -666,6 +666,21 @@ footer a{
   
 }
 @media only screen and (max-width: 576px){
+  .carousel-container{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .weekly-ad-banner{
+    height: 340px;
+    background: white;
+    border: 0.8px solid rgb(177, 177, 177);
+    border-radius: 5px;
+  }
+  
+  .banner{
+    height: 240px;
+    width: 100%;
+  }
   .burger{
     font-size: 25px;
   }
@@ -781,9 +796,14 @@ footer a{
   .carousel-item img{
       width: 150px !important;
   }
-  .top-stores-row .col-md-3{
-      width: 46% !important;
+  .top-stores-row{
+    justify-content: space-between;
   }
+  .top-stores-row .col-md-3{
+      width: 153px !important;
+      height: 153px;
+  }
+
   .top-stores-row .col-md-3 img{
      margin-top: 0.5rem;
   }

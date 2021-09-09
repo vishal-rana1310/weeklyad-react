@@ -8,28 +8,7 @@ import Carousel from './Carousel';
 import {Baseurl} from './url'
 
 const Home = () => {
-//     function downloadImage(url, name){
-//         const options = {
-//             method: 'GET',
-//             headers: new Headers({'content-type': 'image/webp'}),
-//             mode: 'no-cors'
-//         };
-//         fetch(url,options)
-//           .then(resp => resp.blob("as"))
-//           .then(blob => {
-              
-//               console.log(url);
-//               const a = document.createElement('a');
-//               a.href = url;
-//               // the filename you want
-//               a.download = name;
-//               document.body.appendChild(a);
-//               a.click();
-//               window.URL.revokeObjectURL(url);
-//           })
-//           .catch((e) => alert('An error sorry'));
-//   }
-//   downloadImage("https://na001.leafletcdns.com/us/data/2/15047/0.webp?t=1630735566","0.webp");
+
 
     const [topStore, setTopStore] = useState([])
     const [topCategory, setTopCategory] = useState([])
@@ -61,7 +40,7 @@ const Home = () => {
         <React.Fragment>
                 
         <div className="container-fluid pt-5" style={{background: "#f2fdfc"}}>
-            <div className="container" style={{margin: "auto", justifyContent: "center"}}>
+            <div className="container carousel-container" style={{margin: "auto", justifyContent: "center"}}>
                 <div className="row">
                     <div className="col-md-3">
                         
