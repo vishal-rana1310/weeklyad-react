@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {Baseurl} from './url'
 import { useParams } from "react-router-dom";
+import {Helmet} from 'react-helmet';
 var moment = require('moment');
 
 console.log("date",moment().format("DD/MM/YY")); 
@@ -98,7 +99,7 @@ const Store = () => {
                     <a href={"/"+store+"/"+item.adTitle}>
                         <div className="flyer-card" style={{opacity:"1"}}>
                             <div className="flyer-img">
-                            <img className="expried-tag" src="/images/upcoming-01.png" alt="" style={{width:"100px"}}></img> 
+                            <img className="expried-tag" src="/images/upcoming.png" alt="" style={{width:"100px"}}></img> 
                                 <a href={"/"+store+"/"+item.adTitle}>
                                     <img src={item.prevImgLink} alt="" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "top"}}/>
                                 </a>
@@ -168,6 +169,11 @@ const Store = () => {
                         </div>
                     </div>
                 </div>
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>{store} Weekly Ads and Flyers</title>
+
+                </Helmet>
             </div>
             
 

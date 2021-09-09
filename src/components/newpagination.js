@@ -5,6 +5,7 @@ import  '../App.css';
 import {Baseurl} from './url'
 import InnerImageZoom from 'react-inner-image-zoom'
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+import {Helmet} from 'react-helmet';
 
 
 
@@ -117,6 +118,11 @@ const NewPagination = () => {
                         </div>
                     </div>
                 </div>
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>{`Weekly ad - ${adname} ${data.startDate} to ${data.endDate}`}</title>
+                    
+                </Helmet>
             </div>
         </>
     )

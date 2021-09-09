@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Baseurl} from './url'
+import {Helmet} from 'react-helmet';
 const Categories = () => {
     const [allCategories, setAllCategories] = useState([])
     
@@ -35,7 +36,14 @@ const Categories = () => {
                                                 <img src={item.logoLink} alt="" style={{width: "80%", objectFit: "contain", height: "60%"}}/>
                                                 <p className="text-center mt-1">{item.cateTitle}</p>
                                            </a>
+                                           <Helmet>
+                                                <meta charSet="utf-8" />
+                                                <title>Categories - Avm Flyers</title>
+                                                
+                                            </Helmet>
+
                                         </div>
+                                        
                                     )
                                 })
                             }
@@ -48,6 +56,7 @@ const Categories = () => {
                         </div>
                     </div>
                 </div>
+                
             </div>
 
         </React.Fragment>

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Baseurl} from './url'
+import {Helmet} from 'react-helmet';
 const Stores = () => {
     const [allStores, setAllStores] = useState([])
     
@@ -35,6 +36,7 @@ const Stores = () => {
                                                     <img src={item.storeLogoImg} alt="" style={{width: "80%", objectFit: "contain", height: "60%"}}/>
                                                     <p className="text-center mt-1">{item.storeTitle}</p>
                                                     </a>
+                                                    
                                                 </div>
                                             
                                         )
@@ -48,6 +50,11 @@ const Stores = () => {
                         </div>
                     </div>
                 </div>
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>Stores Avm Flyers</title>
+
+                </Helmet>
             </div>
 
         </React.Fragment>

@@ -2,6 +2,7 @@ import { event } from 'jquery';
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import {Baseurl} from './url'
+import {Helmet} from 'react-helmet';
 const CategoryStores = () => {
 
     const {categoryName} = useParams();
@@ -74,6 +75,7 @@ const CategoryStores = () => {
                                         store.map((item) => {
                                             return(
                                                 <li><a href={"/"+item.storeTitle}>{item.storeTitle}</a></li>
+
                                             )
                                         })
                                     }
@@ -103,6 +105,7 @@ const CategoryStores = () => {
                                                 <img src={item.storeLogoImg} alt="#!" style={{width: "80%", objectFit: "contain", height: "60%"}}/>
                                                 <p className="text-center mt-1">{item.storeTitle}</p>
                                                 </a>
+                                                
                                             </div>
                                         )
                                     })
@@ -155,6 +158,12 @@ const CategoryStores = () => {
                         </div>
                     </div>
                 </div>
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <meta name="description" content="Category wise stores"/>
+                    <title>{categoryName} Stores</title>
+
+                </Helmet>
             </div>
             
 

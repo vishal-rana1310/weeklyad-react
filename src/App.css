@@ -630,6 +630,7 @@ footer a{
   width: 100%;
   text-align: left;
 }
+
 @media only screen and (max-width: 1200px){
   ul.categories{
     justify-content: space-between;
@@ -802,6 +803,7 @@ footer a{
   .top-stores-row .col-md-3{
       width: 153px !important;
       height: 153px;
+      border-radius: 50% !important;
   }
 
   .top-stores-row .col-md-3 img{

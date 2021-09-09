@@ -5,6 +5,7 @@ import  '../App.css';
 import {Baseurl} from './url'
 import InnerImageZoom from 'react-inner-image-zoom'
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+import {Helmet} from 'react-helmet';
 const NewPage = () => {
     
 
@@ -25,6 +26,7 @@ const NewPage = () => {
             const res = await fetch(`${Baseurl}/v1/weeklyAd?adName=${adName}&limit=${page}`);
             const json = await res.json();
             setData(json.data)
+            console.log(json.data)
             setTotalPages(json.data.fullImageLink.length)
             setItems(json.url);
             
@@ -118,6 +120,11 @@ const NewPage = () => {
                         </div>
                     </div>
                 </div>
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>{`Weekly ad - ${data.adTitle} ${data.startDate} to ${data.endDate}`}</title>
+                    
+                </Helmet>
             </div>
         </>
     )
