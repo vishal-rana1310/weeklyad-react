@@ -9,7 +9,7 @@ function SampleNextArrow(props) {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "white", color:"black", height:"40px", width:"40px", borderRadius:"50%", display:"grid", placeItems:"center", zIndex:"1000", marginRight:"10px", boxShadow:"0px 0px 5px rgba(200,200,200,0.7)" }}
+        style={{ ...style, display: "block", background: "white", color:"black", height:"50px", width:"50px", borderRadius:"50%", display:"grid", placeItems:"center", zIndex:"1000", marginRight:"10px", boxShadow:"0px 0px 10px rgba(180,180,180,0.6)" }}
         onClick={onClick}
       />
           
@@ -24,7 +24,7 @@ function SampleNextArrow(props) {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "white", color:"black", height:"40px", width:"40px", borderRadius:"50%", display:"grid", placeItems:"center", zIndex:"1000", marginLeft:"10px", boxShadow:"0px 0px 5px rgba(200,200,200,0.7)"  }}
+        style={{ ...style, display: "block", background: "white", color:"black", height:"50px", width:"50px", borderRadius:"50%", display:"grid", placeItems:"center", zIndex:"1000", marginLeft:"10px", boxShadow:"0px 0px 10px rgba(180,180,180,0.6)"  }}
         onClick={onClick}
       />
     );
@@ -66,6 +66,15 @@ function SampleNextArrow(props) {
               dots: true
             }
           },
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true
+            }
+          },
             {
               breakpoint: 576,
               settings: {
@@ -87,7 +96,7 @@ function SampleNextArrow(props) {
                             return(
                                 <div>
                                     <a href={"/"+item.storeName+ "/" + item.adTitle}>
-                                    <div className="weekly-ad-banner m-1">
+                                    <div className="weekly-ad-banner m-2">
                                         <div className="banner">
                                             <img src={item.prevImgLink} alt="" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "top"}}/>
                                         </div>
