@@ -16,7 +16,7 @@ function Header() {
                 <div className="row">
                     <div className="col-md-3 logo">
                         <a href="/" style={{textDecoration:"none"}}>
-                            <img src="/AVM LOGO-01.png" style={{width:"160px", height:"50px", objectFit:"contain", marginTop:"2px"}} />
+                            <img src="/avm-logo.png" style={{width:"160px", height:"50px", objectFit:"contain", marginTop:"2px"}} />
                         </a>
                         <div className="hamburger-menu">
                             <Navigation/>
@@ -395,7 +395,7 @@ function Header() {
                     
                     <li>
                         <a href="/categories/Home">
-                            <img src="/images/Home and Garden-01-01.png" alt="" style={{width: "60px"}}/>
+                            <img src="/images/home.png" alt="" style={{width: "60px"}}/>
                             <br/>
                             <a className="text-center" href="">Home</a>
                         </a>
@@ -442,7 +442,7 @@ function Header() {
                     </li>
                     <li>
                         <a href="/categories/Office-supplies">
-                            <img src="/images/Office Sup-01-01.png" alt="" style={{width: "60px"}}/>
+                            <img src="/images/office.png" alt="" style={{width: "60px"}}/>
                             <br/>
                             <a className="text-center" href="">Office</a>
                         </a>

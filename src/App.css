@@ -642,7 +642,7 @@ footer a{
     display: none !important;
   }
   .top-stores-row .col-md-3{
-    width: 28% !important;
+    width: 140px !important;
   }
   button.view-offer{
     padding: 0.1rem 1rem;
@@ -652,6 +652,12 @@ footer a{
   }
   footer h3{
     font-size: 20px;
+  }
+  .container{
+    max-width: 100% !important;
+  }
+  .top-stores-row .col-md-3{
+    height: 140px;
   }
 }
 @media only screen and (max-width: 992px){
