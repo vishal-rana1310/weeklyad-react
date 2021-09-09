@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
-
+import {Baseurl} from './url'
 const Stores = () => {
     const [allStores, setAllStores] = useState([])
     
     useEffect(() => {
         const getAllStores = async () => {
-            const res = await fetch(`http://192.168.1.8:3000/v1/allStores`);
+            const res = await fetch(`${Baseurl}/v1/allStores`);
             const data = await res.json();
             setAllStores(data);
             console.log(data);

@@ -2,6 +2,9 @@ import {useEffect, useState} from "react";
 import ReactPaginate from 'react-paginate';
 import { Router, useParams, useRouteMatch } from "react-router-dom";
 import  '../App.css';
+import {Baseurl} from './url'
+import InnerImageZoom from 'react-inner-image-zoom'
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 const NewPage = () => {
     
 
@@ -10,25 +13,18 @@ const NewPage = () => {
 
     let {path , url} = useRouteMatch()
 
-    const[backgroundPosition,setBackground] = useState('0% 0%')
-    const state = {
-        backgroundImage: `url(${items})`,
-        backgroundPosition: backgroundPosition
-    }
-    const handleMouseMove = e => {
-        const { left, top, width, height } = e.target.getBoundingClientRect()
-        const x = (e.pageX - left) / width * 100
-        const y = (e.pageY - top) / height * 100
-        setBackground( `${x}% ${y}%` )
-    }
+
     const [data,setData] = useState([])
     const [currentp,setCurrent] = useState(1)
     const [totalPage,setTotalPages] = useState(1)
     useEffect(() => {
         const getFlyers = async () => {
-            const res = await fetch(`http://192.168.1.8:3000/v1/weeklyAd?adName=Weekly-ad-21-21-2&limit=${page}`);
+            var arr = url.split('/'); 
+
+             const adName = arr[arr.length-2]
+            const res = await fetch(`${Baseurl}/v1/weeklyAd?adName=${adName}&limit=${page}`);
             const json = await res.json();
-            setData(json)
+            setData(json.data)
             setTotalPages(json.data.fullImageLink.length)
             setItems(json.url);
             
@@ -56,7 +52,7 @@ const NewPage = () => {
                         
                         <div className="col-md-6" style={{margin:"auto", justifyContent:"center"}}>
                             <h4>{data.storeName} Weekly Ad</h4>
-                            <p className="mb-4"> from Sunday {data.startDate} to Monday {data.endDate}</p>
+                            <p className="mb-4"> from {data.startDate} to {data.endDate}</p>
                             <ReactPaginate
                                 previousLabel = {'Prev'}
                                 nextLabel = {'Next'}
@@ -82,9 +78,9 @@ const NewPage = () => {
                                 
                                     
                                     
-                                            <div onMouseMove={handleMouseMove} style={state}  className="flyer-full-ad text-center">
+                                            <div  className="flyer-full-ad text-center">
                                                 
-                                                    <img src={items} alt="" style={{width:"100%"}}></img>
+                                                    <InnerImageZoom src={items} alt="" style={{width:"100%"}}></InnerImageZoom>
                                                 
                                                 
                                             </div>

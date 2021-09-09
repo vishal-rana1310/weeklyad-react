@@ -12,6 +12,7 @@ import CategoryStores from './components/category-stores';
 import Store from './components/store';
 import NewPagination from './components/newpagination';
 import NewPage from './components/newpage';
+import ServerAutoSuggest from './components/storeSuggestions'
 
 function App() {
   return (

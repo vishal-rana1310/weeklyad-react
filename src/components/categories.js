@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
-
+import {Baseurl} from './url'
 const Categories = () => {
     const [allCategories, setAllCategories] = useState([])
     
     useEffect(() => {
         const getAllCategories = async () => {
-            const res = await fetch(`http://192.168.1.8:3000/v1/category`);
+            const res = await fetch(`${Baseurl}/v1/category`);
             const data = await res.json();
             setAllCategories(data);
 

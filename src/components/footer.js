@@ -10,29 +10,35 @@ function Footer() {
                     <div className="col-md-3 p-2">
                         <h4 style={{color: "white"}}>Subscribe to our Offers</h4>
                         <p style={{color: "rgb(211, 211, 211)"}}>Receive the latest offers by e-mail and don´t miss out on any special offer</p>
-                        <button className="subscribe mt-3">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                            Subscribe
-                        </button>
+                        <div className="subscription-form" style={{background:"none", border:"0", padding:"0"}}>
+                                
+                
+                        
+                                <input style={{width:"100%"}} type="text" placeholder="Enter email.."/>
+                                <button className="subscribe mt-3" style={{width:"100%"}}>
+                
+                                      Subscribe
+                                </button>
+                            </div>
                     </div>
                     <div className="col-md-3 p-2">
                         <h3 style={{color: "white"}}>Pages</h3>
                         <ul className="footer-nav-1" style={{listStyle: "disc"}}>
                             
                             <li>
-                                <a href="#!">About Us</a>
+                                <a href="/about">About Us</a>
                             </li>
                             <li>
-                                <a href="#!">Contact Us</a>
+                                <a href="/contact">Contact Us</a>
                             </li>
                             <li>
-                                <a href="#!">Privacy Policy</a>
+                                <a href="/privacy">Privacy Policy</a>
                             </li>
                             <li>
-                                <a href="#!">Terms</a>
+                                <a href="/terms">Terms</a>
                             </li>
                             <li>
-                                <a href="#!">Sitemap</a>
+                                <a href="/sitemap">Sitemap</a>
                             </li>
                         </ul>
                     </div>
@@ -40,22 +46,22 @@ function Footer() {
                         <h3 style={{color: "white"}}>Top Categories</h3>
                         <ul className="footer-nav-1" style={{listStyle: "disc"}}>
                             <li>
-                                <a href="#!">Finance</a>
+                                <a href="/categories/Finance">Finance</a>
                             </li>
                             <li>
-                                <a href="#!">Office Supplies</a>
+                                <a href="/categories/Office">Office Supplies</a>
                             </li>
                             <li>
-                                <a href="#!">Food</a>
+                                <a href="/categories/Food">Food</a>
                             </li>
                             <li>
-                                <a href="#!">Fitness</a>
+                                <a href="/categories/Fitness">Fitness</a>
                             </li>
                             <li>
-                                <a href="#!">Entertainment</a>
+                                <a href="/categories/Entertainment">Entertainment</a>
                             </li>
                             <li>
-                                <a href="#!">Sitemap</a>
+                                <a href="/categories/sitemap">Sitemap</a>
                             </li>
                         </ul>
                     </div>
@@ -63,19 +69,19 @@ function Footer() {
                         <h3 style={{color: "white"}}>Top Stores</h3>
                         <ul className="footer-nav-1" style={{listStyle: "disc"}}>
                             <li>
-                                <a href="#!">Target</a>
+                                <a href="/Target">Target</a>
                             </li>
                             <li>
-                                <a href="#!">Wallgreens</a>
+                                <a href="/Wallgreens">Wallgreens</a>
                             </li>
                             <li>
-                                <a href="#!">Acme</a>
+                                <a href="/Acme">Acme</a>
                             </li>
                             <li>
-                                <a href="#!">Lidl</a>
+                                <a href="/lidl">Lidl</a>
                             </li>
                             <li>
-                                <a href="#!">DSW</a>
+                                <a href="/dsw">DSW</a>
                             </li>
                         </ul>
                     </div>

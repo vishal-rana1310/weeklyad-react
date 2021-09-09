@@ -1,14 +1,15 @@
-import {useState, useEffect} from 'react';
+import { event } from 'jquery';
+import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
-
+import {Baseurl} from './url'
 const CategoryStores = () => {
 
     const {categoryName} = useParams();
     const [store, setStores] = useState([])
-    
+    const [categoryPageWeeklyAd, setcategoryPageWeeklyAd] = useState([])
     useEffect(() => {
         const getStores = async () => {
-            const res = await fetch(`http://192.168.1.8:3000/v1/catStore?catName=${categoryName}`);
+            const res = await fetch(`${Baseurl}/v1/catStore?catName=${categoryName}`);
             const data = await res.json();
             setStores(data);
 
@@ -16,7 +17,46 @@ const CategoryStores = () => {
         
         getStores();
         
+        
+        const getCategoryPageAds = async () => {
+            const res = await fetch(`${Baseurl}/v1/popweeklyad`);
+            const data = await res.json();
+            
+            
+            setcategoryPageWeeklyAd(data);
+        
+
+        };
+        getCategoryPageAds();
+        
     }, [])
+   let emailInput  = React.createRef();
+   const handleKeyPress = (event) => {
+    if(event.key === 'Enter'){
+      console.log(emailInput.current.value);
+      fetch(`${Baseurl}/v1/subs`, {
+        method: 'post',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+              "email":emailInput.current.value
+        })
+     });
+    }
+    }
+   function handleClick() {
+    console.log(emailInput.current.value);
+
+    
+    fetch(`${Baseurl}/v1/subs`, {
+        method: 'post',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+              "email":emailInput.current.value
+        })
+     });
+
+  }
+  
 
     
 
@@ -45,8 +85,8 @@ const CategoryStores = () => {
                                 
                                 <i class="fa fa-envelope-o" aria-hidden="true" style={{fontSize:"100px"}}></i>
                                 <p>Subscribe to our offers</p>
-                                <input type="text" placeholder="Enter email.."/>
-                                <button className="subscribe mt-3">
+                                <input ref={emailInput} onKeyPress={handleKeyPress} type="email" placeholder="Enter email.."/>
+                                <button onClick={handleClick} className="subscribe mt-3">
                 
                                       Subscribe
                                 </button>
@@ -72,61 +112,41 @@ const CategoryStores = () => {
                             
                             </div>
                             <br/>
+
+                            <h4 className="mb-3">Top weekly ads from top stores</h4>
                             <div className="row flyer-card-row">
-                                <div className="col-md-4 p-2">
-                                    <div className="flyer-card">
-                                       
+                                {
+                                    categoryPageWeeklyAd.map((item) => {
+                                        return(
+                                            <div className="col-md-4 p-2">
+                                                <a href={"/"+item.storeName+"/"+item.adTitle}>
+                                                    <div className="flyer-card">
+                                                        
+                                                                
                                             
-                        
-                                        <div className="flyer-img">
-                                            <img src="../images/Screenshot 2021-07-15 at 3.47.44 PM.png" alt="#!" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "top"}}/>
-                                        </div>
-                                        <div className="card-detail pt-1 text-center">
-                                            <p style={{margin: "0"}}>
-                                                <b>WeeklyAd</b>
-                                            </p>
-                                            <span style={{fontSize: "12px"}}>01/09/2021 - 01/10/21</span>
-                                            <a href="#!">
-                                                <button className="view-offer">View Offer</button>
-                                            </a>
-                                        </div>
-                                    </div>
+                                                        <div className="flyer-img">
+                                                            <img src={item.prevImgLink} alt="#!" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "top"}}/>
+                                                        </div>
+                                                        <div className="card-detail pt-1 text-center">
+                                                            <p style={{margin: "0"}}>
+                                                                <b>{item.storeName}</b>
+                                                            </p>
+                                                            <span style={{fontSize:"12px"}}>Weekly Ad</span><br/>
+                                                            <span style={{fontSize: "12px"}}>{item.startDate} - {item.endDate}</span>
+                                                            <a href={"/"+item.storeName+"/"+item.adTitle}>
+                                                                <button className="view-offer">View Offer</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            
+                                            </div>
+                                        )
+                                    })
+                                }
                                 
-                                </div>
-                                <div className="col-md-4 p-2">
-                                    <div className="flyer-card">
-                                        <div className="flyer-img">
-                                            <img src="../images/Screenshot 2021-07-15 at 3.47.44 PM.png" alt="#!" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "top"}}/>
-                                        </div>
-                                        <div className="card-detail pt-1 text-center">
-                                            <p style={{margin: "0"}}>
-                                                <b>WeeklyAd</b>
-                                            </p>
-                                            <span style={{fontSize: "12px"}}>01/09/2021 - 01/10/21</span>
-                                            <a href="#!">
-                                                <button className="view-offer">View Offer</button>
-                                            </a>
-                                        </div>
-                                    </div>
                                 
-                                </div>
-                                <div className="col-md-4 p-2">
-                                    <div className="flyer-card">
-                                        <div className="flyer-img">
-                                            <img src="../images/Screenshot 2021-07-15 at 3.47.44 PM.png" alt="#!" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "top"}}/>
-                                        </div>
-                                        <div className="card-detail pt-1 text-center">
-                                            <p style={{margin: "0"}}>
-                                                <b>WeeklyAd</b>
-                                            </p>
-                                            <span style={{fontSize: "12px"}}>01/09/2021 - 01/10/21</span>
-                                            <a href="#!">
-                                                <button className="view-offer">View Offer</button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                
-                                </div>
+                
                             </div>
                             
                         </div>
