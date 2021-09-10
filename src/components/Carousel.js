@@ -98,7 +98,7 @@ function SampleNextArrow(props) {
                                     <a href={"/"+item.storeName+ "/" + item.adTitle}>
                                     <div className="weekly-ad-banner m-2">
                                         <div className="banner">
-                                            <img src={item.prevImgLink} alt="" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "top"}}/>
+                                            <img src={item.prevImgLink} alt="" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "center left"}}/>
                                         </div>
                                         <div className="banner-detail pt-3 text-center">
                                             <p style={{margin: "0"}}>

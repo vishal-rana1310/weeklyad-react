@@ -13,6 +13,9 @@ import Store from './components/store';
 import NewPagination from './components/newpagination';
 import NewPage from './components/newpage';
 import ServerAutoSuggest from './components/storeSuggestions'
+import About from './components/About';
+import Terms from './components/Terms';
+import Privacy from './components/privacy';
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
     <Router>
     <Header/>
     <Switch>
+    <Route exact path="/about" component={About} />
+    <Route exact path="/terms" component={Terms} />
+    <Route exact path="/privacy-policy" component={Privacy} />
     <Route exact path="/" component={Home} />
     <Route exact path="/stores" component={Stores} />
     <Route exact path="/categories" component={Categories} />
@@ -27,6 +33,8 @@ function App() {
     <Route exact path="/:store" component={Store} />
     <Route exact path="/:Store/:adname" component={NewPagination} />
     <Route exact path="/:Store/:adname/:page" component={NewPage} />
+    
+    
     
     </Switch>
     <Footer/>

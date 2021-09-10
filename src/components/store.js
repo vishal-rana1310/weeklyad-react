@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import {Helmet} from 'react-helmet';
 var moment = require('moment');
 
-console.log("date",moment().format("DD/MM/YY")); 
+console.log("date",moment().format("dddd")); 
 const Store = () => {
     const {store} = useParams();
     const [ads, setAds] = useState([]);
@@ -48,7 +48,7 @@ const Store = () => {
                                 <div className="flyer-img">
                                     <img className="expried-tag" src="/images/expired.png" alt="" style={{width:"100px", zIndex:"10"}}></img> 
                                     <a href={"/"+store+"/"+item.adTitle}>
-                                        <img src={item.prevImgLink} alt="" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", opacity:"0.5"}}/>
+                                        <img src={item.prevImgLink} alt="" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "left", opacity:"0.5"}}/>
                                     </a>
                                 </div>
                                 <div className="card-detail pt-1 text-center">
@@ -74,7 +74,7 @@ const Store = () => {
                                 <div className="flyer-img">
                                 
                                     <a href={"/"+store+"/"+item.adTitle}>
-                                        <img src={item.prevImgLink} alt="" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "top"}}/>
+                                        <img src={item.prevImgLink} alt="" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "left"}}/>
                                     </a>
                                 </div>
                                 <div className="card-detail pt-1 text-center">
@@ -101,7 +101,7 @@ const Store = () => {
                             <div className="flyer-img">
                             <img className="expried-tag" src="/images/upcoming.png" alt="" style={{width:"100px"}}></img> 
                                 <a href={"/"+store+"/"+item.adTitle}>
-                                    <img src={item.prevImgLink} alt="" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "top"}}/>
+                                    <img src={item.prevImgLink} alt="" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "left"}}/>
                                 </a>
                             </div>
                             <div className="card-detail pt-1 text-center">
@@ -131,7 +131,7 @@ const Store = () => {
                             
                         </div>
                         <div className="col-md-6">
-                            <h4 className="mb-3">{storeInfo.storeTitle} Circular and weekly ads</h4>
+                            <h4 className="mb-3 text-center">{storeInfo.storeTitle} Circular and weekly ads</h4>
                             
                             <div className="row flyer-card-row">
                                 {
@@ -146,7 +146,7 @@ const Store = () => {
                                 
                             </div>
                             <br/>
-                            <h4>{storeInfo.storeTitle} Ad</h4>
+                            <h4 className="text-center">{storeInfo.storeTitle}</h4>
                             <hr/>
                             <h6 style={{color: "rgb(146, 146, 146)"}}>Description</h6>
                             <hr/>
@@ -155,9 +155,7 @@ const Store = () => {
                                     <img src={storeInfo.storeLogoImg} alt="" style={{width: "100%", height: "100%", objectFit: "contain", objectPosition: "top"}}/>
                                 </div>
                                 <div className="store-des-content">
-                                    <p>
-                                    {storeInfo.storeDescription}
-                                    </p>
+                                    <div dangerouslySetInnerHTML={{ __html: storeInfo.storeDescription }} />
                                 </div>
                             </div>
 

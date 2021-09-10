@@ -81,12 +81,15 @@ const Navigation = () => {
                             
                                     <div class="dropdown">
                                         <button class="btn btn-secondary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Supermarts
+                                            Grocery
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                             <li><a class="dropdown-item" href="/Acme">Acme</a></li>
                                             <li><a class="dropdown-item" href="/Wallgreens">Wallgreens</a></li>
-                                            <li><a class="dropdown-item" href="/Sports">Soprts</a></li>
+                                            <li><a class="dropdown-item" href="/HyVee">HyVee</a></li>
+                                            <li><a class="dropdown-item" href="/Wegmans">Wegmans</a></li>
+                                            <li><a class="dropdown-item" href="/Lidl">Lidl</a></li>
+                                            <li><a class="dropdown-item" href="/Albertsons">Albertsons</a></li>
                                         </ul>
                                     </div>
                                 
@@ -95,9 +98,9 @@ const Navigation = () => {
                                         Electronics
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">Acme</a></li>
-                                        <li><a class="dropdown-item" href="#">Wallgreens</a></li>
-                                        <li><a class="dropdown-item" href="#">Soprts</a></li>
+                                        <li><a class="dropdown-item" href="/Verizon">Verizon</a></li>
+                                        <li><a class="dropdown-item" href="/Boost Mobile">Boost Mobile</a></li>
+                                        <li><a class="dropdown-item" href="/BrandsMart USA">BrandsMart USA</a></li>
                                     </ul>
                                 </div>
                                 <div class="dropdown">

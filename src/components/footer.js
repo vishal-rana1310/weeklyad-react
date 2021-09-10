@@ -1,6 +1,69 @@
-import React from 'react'
+import React, {useState} from 'react'
+import Modal from 'react-bootstrap/Modal'
+import ModalDialog from 'react-bootstrap/ModalDialog'
+import ModalHeader from 'react-bootstrap/ModalHeader'
+import ModalTitle from 'react-bootstrap/ModalTitle'
+import ModalBody from 'react-bootstrap/ModalBody'
+import ModalFooter from 'react-bootstrap/ModalFooter'
+import Button from 'react-bootstrap/Button'
+import {Baseurl} from './url'
 
 function Footer() {
+
+    let emailInput  = React.createRef();
+//    let invalidMessage = React.createRef();
+   
+   const handleKeyPress = (event) => {
+    if(event.key === 'Enter'){
+      console.log(emailInput.current.value);
+      fetch(`${Baseurl}/v1/subs`, {
+        method: 'post',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+              "email":emailInput.current.value
+        })
+     });
+    }
+    }
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    
+   function handleClick() {
+    console.log(emailInput.current.value);
+
+    
+    fetch(`${Baseurl}/v1/subs`, {
+        method: 'post',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+              "email":emailInput.current.value
+        })
+     }).then(res =>{
+        // var elem = ''
+        // invalidMessage.current.append(elem);
+         if(res.status == 201){
+            emailInput.current.value = ""
+            
+            // invalidMessage.current.append(elem);
+            setShow(true);
+            
+         }
+         else{
+             setShow(false)
+            //  elem = 'Please enter a valid email!'
+            //  invalidMessage.current.append(elem);
+             emailInput.current.value = ""
+             
+
+         }
+         
+     });
+     
+
+
+  }
+  
   return (
     <React.Fragment>
         <footer style={{background: "#140f10"}}>
@@ -14,11 +77,34 @@ function Footer() {
                                 
                 
                         
-                                <input style={{width:"100%"}} type="text" placeholder="Enter email.."/>
-                                <button className="subscribe mt-3" style={{width:"100%"}}>
+                        <input ref={emailInput} onKeyPress={handleKeyPress} type="email" placeholder="Enter email.."/>
+                                <p style={{color:"red", fontSize:"12px"}} className="invalid-email-msg mt-2"></p>
+                                <Button variant="primary" onClick={handleClick} className="subscribe">
                 
                                       Subscribe
-                                </button>
+                                </Button>
+                                <Modal show={show} onHide={handleClose}>
+                                    <ModalHeader style={{justifyContent:"center"}}>
+                                    <ModalTitle>
+                                        
+                                        <h4 className="text-center">Email Subscription</h4>
+                                        
+                                    </ModalTitle>
+                                    </ModalHeader>
+                                    <ModalBody>
+                                        <div className="text-center">
+                                            <img className="text-center" src="/images/icon-01.png" alt="logo"></img>
+                                        </div>
+                                        <h2 className="text-center" style={{color:"#F18749"}}>Congratulations!!</h2>
+                                        <p className="text-center">You have subscribed to our latest offers</p>
+                                    </ModalBody>
+                                    <ModalFooter>
+                                    <Button style={{background:"#2874F0", border:"none", width:"120px"}} variant="success" onClick={handleClose}>
+                                        Close
+                                    </Button>
+                                    
+                                    </ModalFooter>
+                                </Modal>
                             </div>
                     </div>
                     <div className="col-md-3 p-2">
@@ -28,18 +114,14 @@ function Footer() {
                             <li>
                                 <a href="/about">About Us</a>
                             </li>
-                            <li>
-                                <a href="/contact">Contact Us</a>
-                            </li>
+                            
                             <li>
                                 <a href="/privacy">Privacy Policy</a>
                             </li>
                             <li>
                                 <a href="/terms">Terms</a>
                             </li>
-                            <li>
-                                <a href="/sitemap">Sitemap</a>
-                            </li>
+                            
                         </ul>
                     </div>
                     <div className="col-md-3 p-2">
@@ -60,9 +142,7 @@ function Footer() {
                             <li>
                                 <a href="/categories/Entertainment">Entertainment</a>
                             </li>
-                            <li>
-                                <a href="/categories/sitemap">Sitemap</a>
-                            </li>
+                           
                         </ul>
                     </div>
                     <div className="col-md-3 p-2">
@@ -91,7 +171,7 @@ function Footer() {
             </div>
             <hr style={{background: "white"}}/>
             <div className="container pb-3">
-                <p className="p-2 copyright-p" style={{color: "rgb(124, 124, 124)"}}>Copyright © 2021 AdsAdora.com. All rights reserved. Copying the texts without the written consent of the site operator is prohibited.</p>
+                <p className="p-2 copyright-p" style={{color: "rgb(124, 124, 124)"}}>Copyright © 2021 avmnewslive.com All rights reserved. Copying the texts without the written consent of the site operator is prohibited.</p>
             </div>
             
         </div>

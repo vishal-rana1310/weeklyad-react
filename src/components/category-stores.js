@@ -3,6 +3,15 @@ import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import {Baseurl} from './url'
 import {Helmet} from 'react-helmet';
+import Modal from 'react-bootstrap/Modal'
+import ModalDialog from 'react-bootstrap/ModalDialog'
+import ModalHeader from 'react-bootstrap/ModalHeader'
+import ModalTitle from 'react-bootstrap/ModalTitle'
+import ModalBody from 'react-bootstrap/ModalBody'
+import ModalFooter from 'react-bootstrap/ModalFooter'
+import Button from 'react-bootstrap/Button'
+
+
 const CategoryStores = () => {
 
     const {categoryName} = useParams();
@@ -32,6 +41,8 @@ const CategoryStores = () => {
         
     }, [])
    let emailInput  = React.createRef();
+//    let invalidMessage = React.createRef();
+   
    const handleKeyPress = (event) => {
     if(event.key === 'Enter'){
       console.log(emailInput.current.value);
@@ -44,6 +55,10 @@ const CategoryStores = () => {
      });
     }
     }
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    
    function handleClick() {
     console.log(emailInput.current.value);
 
@@ -54,7 +69,28 @@ const CategoryStores = () => {
         body: JSON.stringify({
               "email":emailInput.current.value
         })
+     }).then(res =>{
+        // var elem = ''
+        // invalidMessage.current.append(elem);
+         if(res.status == 201){
+            emailInput.current.value = ""
+            
+            // invalidMessage.current.append(elem);
+            setShow(true);
+            
+         }
+         else{
+             setShow(false)
+            //  elem = 'Please enter a valid email!'
+            //  invalidMessage.current.append(elem);
+             emailInput.current.value = ""
+             
+
+         }
+         
      });
+     
+
 
   }
   
@@ -88,20 +124,44 @@ const CategoryStores = () => {
                                 <i class="fa fa-envelope-o" aria-hidden="true" style={{fontSize:"100px"}}></i>
                                 <p>Subscribe to our offers</p>
                                 <input ref={emailInput} onKeyPress={handleKeyPress} type="email" placeholder="Enter email.."/>
-                                <button onClick={handleClick} className="subscribe mt-3">
+                                <p style={{color:"red", fontSize:"12px"}} className="invalid-email-msg mt-2"></p>
+                                <Button variant="primary" onClick={handleClick} className="subscribe">
                 
                                       Subscribe
-                                </button>
+                                </Button>
+                                <Modal show={show} onHide={handleClose}>
+                                    <ModalHeader style={{justifyContent:"center"}}>
+                                    <ModalTitle>
+                                        
+                                        <h4 className="text-center">Email Subscription</h4>
+                                        
+                                    </ModalTitle>
+                                    </ModalHeader>
+                                    <ModalBody>
+                                        <div className="text-center">
+                                            <img className="text-center" src="/images/icon-01.png" alt="logo"></img>
+                                        </div>
+                                        <h2 className="text-center" style={{color:"#F18749"}}>Congratulations!!</h2>
+                                        <p className="text-center">You have subscribed to our latest offers</p>
+                                    </ModalBody>
+                                    <ModalFooter>
+                                    <Button style={{background:"#2874F0", border:"none", width:"120px"}} variant="success" onClick={handleClose}>
+                                        Close
+                                    </Button>
+                                    
+                                    </ModalFooter>
+                                </Modal>
+                            
                             </div>
                         </div>
                         <div className="col-md-6">
-                            <h4 className="mb-3">Best offers from category {categoryName}</h4>
+                            <h4 className="mb-3 text-center">Best offers from category {categoryName}</h4>
                             <div className="row top-stores-row">
                                 {
                                     store.map((item) => {
                                         return(
                                             <div className="store-name col-md-3 pt-3 text-center" style={{width: "23%"}}>
-                                                <a href={"/"+item.storeTitle}>
+                                                <a href={"/"+item.storeUrlName}>
                                                 <img src={item.storeLogoImg} alt="#!" style={{width: "80%", objectFit: "contain", height: "60%"}}/>
                                                 <p className="text-center mt-1">{item.storeTitle}</p>
                                                 </a>
@@ -116,7 +176,7 @@ const CategoryStores = () => {
                             </div>
                             <br/>
 
-                            <h4 className="mb-3">Top weekly ads from top stores</h4>
+                            <h4 className="mb-3 text-center">Top weekly ads from top stores</h4>
                             <div className="row flyer-card-row">
                                 {
                                     categoryPageWeeklyAd.map((item) => {
@@ -128,7 +188,7 @@ const CategoryStores = () => {
                                                                 
                                             
                                                         <div className="flyer-img">
-                                                            <img src={item.prevImgLink} alt="#!" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "top"}}/>
+                                                            <img src={item.prevImgLink} alt="#!" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "left"}}/>
                                                         </div>
                                                         <div className="card-detail pt-1 text-center">
                                                             <p style={{margin: "0"}}>
@@ -154,7 +214,21 @@ const CategoryStores = () => {
                             
                         </div>
                         <div className="col-md-3">
-                            
+                        <div className="categorywise-store-list mobile-elem">
+                                <h5>{categoryName}</h5>
+                                <ul>
+                                    {
+                                        store.map((item) => {
+                                            return(
+                                                <li><a href={"/"+item.storeTitle}>{item.storeTitle}</a></li>
+
+                                            )
+                                        })
+                                    }
+                                    
+                        
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

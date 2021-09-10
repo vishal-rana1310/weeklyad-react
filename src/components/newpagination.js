@@ -6,7 +6,8 @@ import {Baseurl} from './url'
 import InnerImageZoom from 'react-inner-image-zoom'
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import {Helmet} from 'react-helmet';
-
+var moment = require('moment');
+console.log("date",moment().format("dddd")); 
 
 
 const NewPagination = () => {
@@ -18,6 +19,7 @@ const NewPagination = () => {
     console.log(data)
     const [currentp,setCurrent] = useState(1)
     const [totalPage,setTotalPages] = useState(1)
+    
     useEffect(() => {
         const getFlyers = async () => {
         
@@ -31,6 +33,9 @@ const NewPagination = () => {
 
         };
         getFlyers();
+        
+        
+        
     }, [])
 
    
@@ -39,6 +44,11 @@ const NewPagination = () => {
         window.location.replace(url+"/"+currentPage);
         
     }
+
+    var startFullDate = moment(data.startDate, "DD/MM/YYYY")
+    var endFullDate = moment(data.endDate, "DD/MM/YYYY")
+    const startDay = moment(startFullDate).format("dddd")
+    const endDay = moment(endFullDate).format("dddd")
     return(
         <>
 
@@ -47,12 +57,12 @@ const NewPagination = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3">
-
+                            
                         </div>
                         
                         <div className="col-md-6" style={{margin:"auto", justifyContent:"center"}}>
-                            <h4>{data.storeName} Weekly Ad</h4>
-                            <p className="mb-4"> from {data.startDate} to {data.endDate}</p>
+                            <h4 className="text-center">{data.storeName} Weekly Ad</h4>
+                            <p className="mb-4 text-center"> from {startDay} {data.startDate} to {endDay} {data.endDate}</p>
                             <ReactPaginate
                                 previousLabel = {'Prev'}
                                 nextLabel = {'Next'}

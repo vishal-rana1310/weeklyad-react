@@ -53,8 +53,8 @@ const NewPage = () => {
                         </div>
                         
                         <div className="col-md-6" style={{margin:"auto", justifyContent:"center"}}>
-                            <h4>{data.storeName} Weekly Ad</h4>
-                            <p className="mb-4"> from {data.startDate} to {data.endDate}</p>
+                            <h4 className="text-center">{data.storeName} Weekly Ad</h4>
+                            <p className="mb-4 text-center"> from {data.startDate} to {data.endDate}</p>
                             <ReactPaginate
                                 previousLabel = {'Prev'}
                                 nextLabel = {'Next'}

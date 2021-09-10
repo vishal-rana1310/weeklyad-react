@@ -69,6 +69,7 @@ ul.categories{
 ul.categories > li{
   padding: 0.5rem 2rem;
   text-align: center;
+  
 
 }
 ul.categories > li > a{
@@ -85,7 +86,8 @@ ul.categories > li > a:hover{
   width: 89%;
   left: 6%;
   top: 100%;
-  border: 1px solid #2874F0;
+  border: 1px solid #bcd5ff;
+  border-top: 3px solid #2874F0;
   border-radius: 5px;
   padding: 2rem;
   box-shadow: 1px 1px 10px rgba(190, 190, 190, 0.7);
@@ -105,6 +107,12 @@ ul.categories > li:hover > div{
 .dropdown-cate-menu > a{
   color: rgb(92, 92, 92);
   text-decoration: none;
+}
+.dropdown-cate-menu  a:hover{
+  color: #2874F0 !important;
+}
+.categories > li > a:hover {
+  color: #2874F0 !important;
 }
 .menus{
   display: flex;
@@ -283,7 +291,7 @@ ul.pages > li > a{
   box-shadow: none;
 }
 button.subscribe{
-  background: #F18749;
+  background: #2874F0;
   color: white;
   padding: 0.3rem 1.5rem;
   border: none;
@@ -308,7 +316,12 @@ p.copyright-p{
 footer a:hover{
   color: #4684e9;
 }
-
+footer input{
+  width: 100% !important;
+}
+footer button.subscribe{
+  width: 100%;
+}
 
 /* flyer Card CSS */
 
@@ -424,6 +437,8 @@ a{
   text-decoration: none !important;
   color: black !important;
 }
+
+
 footer a{
   text-decoration: none !important;
   color: rgb(190, 190, 190) !important;
@@ -630,7 +645,15 @@ footer a{
   width: 100%;
   text-align: left;
 }
-
+button.close{
+  display: none;
+}
+.close span{
+  display: none;
+}
+.mobile-elem{
+  display: none;
+}
 @media only screen and (max-width: 1200px){
   ul.categories{
     justify-content: space-between;
@@ -661,15 +684,24 @@ footer a{
     height: 140px;
   }
 }
-@media only screen and (max-width: 992px){
-  
-  
-  
-}
+
 @media only screen and (max-width: 576px){
+  .mobile-elem{
+    display: block;
+  }
   .carousel-container{
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+  .subscription-form{
+    margin-right: 0;
+  }
+  .categorywise-store-list{
+    margin-right: 0;
+    margin-top: 2rem;
+  }
+  .mobile-elem{
+    order: 3 !important;
   }
   .weekly-ad-banner{
     height: 340px;
@@ -695,8 +727,9 @@ footer a{
     margin: 0 0.1rem;
   }
   .page-link{
-    padding: 0;
+    
     font-size: 10px;
+    padding: 0.3rem 0.5rem !important;
   }
 
   ul.categories{
@@ -803,7 +836,7 @@ footer a{
   .top-stores-row .col-md-3{
       width: 153px !important;
       height: 153px;
-      border-radius: 50% !important;
+      
   }
 
   .top-stores-row .col-md-3 img{
@@ -816,6 +849,7 @@ footer a{
      font-size: 12px;
       
   }
+  
  
   .hamburger-menu img{
       cursor: pointer;
@@ -896,6 +930,18 @@ footer a{
   }
   p.copyright-p{
       text-align: left;
+  }
+  footer a{
+    font-size: 14px;
+  }
+  footer h3{
+    font-size: 17px;
+  }
+  footer h4{
+    font-size: 17px;
+  }
+  footer p{
+    font-size: 13px;
   }
 
 
