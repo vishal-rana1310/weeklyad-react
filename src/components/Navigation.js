@@ -84,12 +84,14 @@ const Navigation = () => {
                                             Grocery
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <li><a class="dropdown-item" href="/Acme">Acme</a></li>
-                                            <li><a class="dropdown-item" href="/Wallgreens">Wallgreens</a></li>
-                                            <li><a class="dropdown-item" href="/HyVee">HyVee</a></li>
-                                            <li><a class="dropdown-item" href="/Wegmans">Wegmans</a></li>
-                                            <li><a class="dropdown-item" href="/Lidl">Lidl</a></li>
-                                            <li><a class="dropdown-item" href="/Albertsons">Albertsons</a></li>
+                                            <li><a class="dropdown-item" href="/acme">Acme</a></li>
+                                            <li><a class="dropdown-item" href="/walgreens">Walgreens</a></li>
+                                            <li><a class="dropdown-item" href="/hyVee">HyVee</a></li>
+                                            <li><a class="dropdown-item" href="/wegmans">Wegmans</a></li>
+                                            <li><a class="dropdown-item" href="/lidl">Lidl</a></li>
+                                            <li><a class="dropdown-item" href="/lucky">Lucky</a></li>
+                                            <li><a class="dropdown-item" href="/homeland">Homeland</a></li>
+                                            
                                         </ul>
                                     </div>
                                 
@@ -98,29 +100,18 @@ const Navigation = () => {
                                         Electronics
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="/Verizon">Verizon</a></li>
-                                        <li><a class="dropdown-item" href="/Boost Mobile">Boost Mobile</a></li>
-                                        <li><a class="dropdown-item" href="/BrandsMart USA">BrandsMart USA</a></li>
+                                        <li><a class="dropdown-item" href="/verizon">Verizon</a></li>
+                                        <li><a class="dropdown-item" href="/boost-mobile">Boost Mobile</a></li>
+                                        <li><a class="dropdown-item" href="/brandsmart-usa">BrandsMart USA</a></li>
                                     </ul>
                                 </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary  " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Grocery
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">Acme</a></li>
-                                        <li><a class="dropdown-item" href="#">Wallgreens</a></li>
-                                        <li><a class="dropdown-item" href="#">Soprts</a></li>
-                                    </ul>
-                                </div>
+                                
                                 <div class="dropdown">
                                     <button class="btn btn-secondary  " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                         Food
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">Acme</a></li>
-                                        <li><a class="dropdown-item" href="#">Wallgreens</a></li>
-                                        <li><a class="dropdown-item" href="#">Soprts</a></li>
+                                    <li><a class="dropdown-item" href="/walgreens">Walgreens</a></li>
                                     </ul>
                                 </div>
                                 <div class="dropdown">
@@ -128,19 +119,17 @@ const Navigation = () => {
                                         Entertainment
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">Acme</a></li>
-                                        <li><a class="dropdown-item" href="#">Wallgreens</a></li>
-                                        <li><a class="dropdown-item" href="#">Soprts</a></li>
+                                        
                                     </ul>
                                 </div>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary  " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Sports
+                                        Fitness
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">Acme</a></li>
-                                        <li><a class="dropdown-item" href="#">Wallgreens</a></li>
-                                        <li><a class="dropdown-item" href="#">Soprts</a></li>
+                                        <li><a class="dropdown-item" href="/cvs-pharmacy">CVS Pharmacy</a></li>
+                                        <li><a class="dropdown-item" href="/dicks-sporting-goods">Dicks Sporting Goods</a></li>
+                                        
                                     </ul>
                                 </div>
                                 <div class="dropdown">
@@ -148,59 +137,31 @@ const Navigation = () => {
                                         Fashion
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">Acme</a></li>
-                                        <li><a class="dropdown-item" href="#">Wallgreens</a></li>
-                                        <li><a class="dropdown-item" href="#">Soprts</a></li>
+                                        <li><a class="dropdown-item" href="/dsw">DSW</a></li>
+                                        <li><a class="dropdown-item" href="/kohls">Kohl's</a></li>
+                                        <li><a class="dropdown-item" href="/belk">Belk</a></li>
                                     </ul>
                                 </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary  " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Travel
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">Acme</a></li>
-                                        <li><a class="dropdown-item" href="#">Wallgreens</a></li>
-                                        <li><a class="dropdown-item" href="#">Soprts</a></li>
-                                    </ul>
-                                </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary  " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Grocery
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">Acme</a></li>
-                                        <li><a class="dropdown-item" href="#">Wallgreens</a></li>
-                                        <li><a class="dropdown-item" href="#">Soprts</a></li>
-                                    </ul>
-                                </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary  " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Supermarts
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">Acme</a></li>
-                                        <li><a class="dropdown-item" href="#">Wallgreens</a></li>
-                                        <li><a class="dropdown-item" href="#">Soprts</a></li>
-                                    </ul>
-                                </div>
+                                
+                                
                                 
                                 
                             </ul>
                             <hr style={{background:"rgb(150, 150, 150)"}}></hr>
                             <ul className= "mobile-legal-menu-list dropdown-cat-list">
-                                <a href="/">
+                                <a href="/terms">
                                     <li className="drop-down-catlist-item">
                                         <a className="menu-list-item-link">Terms & Conditions</a>
                                     </li>
                                 </a>
-                                <a href="/">
+                                <a href="/privacy-policy">
                                     <li className="drop-down-catlist-item">
                                         <a className="menu-list-item-link">Privacy Policy</a>
                                     </li>
                                 </a>
-                                <a href="/">
+                                <a href="/about">
                                     <li className="drop-down-catlist-item">
-                                        <a className="menu-list-item-link">Sitemap</a>
+                                        <a className="menu-list-item-link">About Us</a>
                                     </li>
                                 </a>
                                 
