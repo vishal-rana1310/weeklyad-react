@@ -3,11 +3,14 @@ import  '../App.css';
 
 import ServerAutoSuggest from '../components/storeSuggestions'
 import Navigation from './Navigation';
+import {Baseurl} from './url'
+import { HeaderStores } from './dropdownmenu';
 
 function Header() {
+    
+    console.log(HeaderStores[2].catStores);
 
-    const value = 3;
-    console.log(value);
+    
 
     
   return (
@@ -58,78 +61,15 @@ function Header() {
                                 <strong>Grocery</strong>
                                 
                             </a>
-                            <div className="menus mt-3">
+                            <div className="menus mt-3" style={{columnCount:"4", columnGap:"2rem"}}>
                                 <ul className="dropdown-submenu">
-                                    <li><a href="/Target">Target</a></li>
-                                    <li><a href="/Wallgreens">Wallgreens</a></li>
-                                    <li><a href="/Acme">Acme</a></li>
-                                    <li><a href="/lidl">Lidl</a></li>
-                                    <li><a href="/HyVee">HyVee</a></li>
-                                    <li><a href="/Save Mart">Save Mart</a></li>
-                                    <li><a href="/Lucky">Lucky</a></li>
-                                    <li><a href="/El Rancho">El Rancho</a></li>
-                                    <li><a href="/Shaw's">Shaw's</a></li>
-                                    <li><a href="/King Soopers">King Soopers</a></li>
-                                    <li><a href="/Homeland">Homeland</a></li>
-                                    <li><a href="/Dollar Tree">Dollar Tree</a></li>
-                                    <li><a href="/Sprouts">Sprouts</a></li>
-                                    <li><a href="/Wegmans">Wegmans</a></li>
-                                    <li><a href="/QFC">QFC</a></li>
-                                    <li><a href="/Fresh Thyme">Fresh Thyme</a></li>
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/Winn Dixie">Winn Dixie</a></li>
-                                    <li><a href="/Albertsons">Albertsons</a></li>
-                                    <li><a href="/Meijer">Meijer</a></li>
-                                    <li><a href="/Sams Club">Sams Club</a></li>
-                                    <li><a href="/El Super">El Super</a></li>
-                                    <li><a href="/IGA">IGA</a></li>
-                                    <li><a href="/Cash Wise">Cash Wise</a></li>
-                                    <li><a href="/Fareway">Fareway</a></li>
-                                    <li><a href="/H-E-B">H-E-B</a></li>
-                                    <li><a href="/Mariano's">Mariano's</a></li>
-                                    <li><a href="/Five Below">Five Below</a></li>
-                                    <li><a href="/Giant">Giant</a></li>
-                                    <li><a href="/Basha's">Basha's</a></li>
-                                    <li><a href="/BJ's">BJ's</a></li>
-                                    <li><a href="/Family Dollar">Family Dollar</a></li>
-                                    <li><a href="/Family Fare">Family Fare</a></li>
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                        <li><a href="/Jewel Osco">Jewel Osco</a></li>
-                                        <li><a href="/Food Lion">Food Lion</a></li>
-                                        <li><a href="/Ingles">Ingles</a></li>
-                                        <li><a href="/Ollie's">Ollie's</a></li>
-                                        <li><a href="/Rouses">Rouses</a></li>
-                                        <li><a href="/Lowes Foods">Lowes Foods</a></li>
-                                        <li><a href="/Price Chopper">Price Chopper</a></li>
-                                        <li><a href="/Price Rite">Price Rite</a></li>
-                                        <li><a href="/Dollar General">Dollar General</a></li>
-                                        <li><a href="/Publix">Publix</a></li>
-                                        <li><a href="/Costco">Costco</a></li>
-                                        <li><a href="/Walmart">Walmart</a></li>
-                                        <li><a href="/Kroger">Kroger</a></li>
-                                        <li><a href="/H mart">H mart</a></li>
-                                        <li><a href="/Star Market">Star Market</a></li>
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                        <li><a href="/Safeway">Safeway</a></li>
-                                        <li><a href="/Aldi">Aldi</a></li>
-                                        <li><a href="/Stater Bros">Stater Bros</a></li>
-                                        <li><a href="/Save a Lot">Save a Lot</a></li>
-                                        <li><a href="/Ralphs">Ralphs</a></li>
-                                        <li><a href="/Vons">Vons</a></li>
-                                        <li><a href="/Festival Food">Festival Food</a></li>
-                                        <li><a href="/Kmart">Kmart</a></li>
-                                        <li><a href="/Grocery Outlet">Grocery Outlet</a></li>
-                                        <li><a href="/Joann">Joann</a></li>
-                                        <li><a href="/Sears">Sears</a></li>
-                                        <li><a href="/Cub Foods">Cub Foods</a></li>
-                                        <li><a href="/Market Basket">Market Basket</a></li>
-                                        <li><a href="/Trader Joe's">Trader Joe's</a></li>
-                                        <li><a href="/Coborn's">Coborn's</a></li>
-                                        <li><a href="/99 Ranch Market">99 Ranch Market</a></li>
+                                    {
+                                        HeaderStores[0].catStores.map((item) => {
+                                            return(
+                                                <li><a href={"/"+item.storeUrlName}>{item.storeTitle}</a></li>
+                                            )
+                                        })
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -146,22 +86,14 @@ function Header() {
                                 
                             </a>
                             <div className="menus mt-3">
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/Verizon">Verizon</a></li>
-                                    <li><a href="/Boost Mobile">Boost Mobile</a></li>
-                                    
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/BrandsMart USA">BrandsMart USA</a></li>
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/Best Buy">Best Buy</a></li>
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/T mobile">T mobile</a></li>
+                                <ul className="dropdown-submenu" style={{columnCount:"4", columnGap:"2rem"}}>
+                                {
+                                        HeaderStores[1].catStores.map((item) => {
+                                            return(
+                                                <li><a href={"/"+item.storeUrlName}>{item.storeTitle}</a></li>
+                                            )
+                                        })
+                                    }
                                     
                                 </ul>
                             </div>
@@ -179,25 +111,14 @@ function Header() {
                                 
                             </a>
                             <div className="menus mt-3">
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/DSW">DSW</a></li>
-                                    <li><a href="/Kohl's">Kohl's</a></li>
-                                    <li><a href="/Belk">Belk</a></li>
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/Mary Kay">Mary Kay</a></li>
-                                    <li><a href="/JCPenney">JCPenney</a></li>
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/Avon">Avon</a></li>
-                                    <li><a href="/Macy's">Macy's</a></li>
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/Victoria Secret">Victoria Secret</a></li>
-                                    <li><a href="/Bass Pro">Bass Pro</a></li>
+                                <ul className="dropdown-submenu" style={{columnCount:"4", columnGap:"2rem"}}>
+                                {
+                                        HeaderStores[2].catStores.map((item) => {
+                                            return(
+                                                <li><a href={"/"+item.storeUrlName}>{item.storeTitle}</a></li>
+                                            )
+                                        })
+                                    }
                                     
                                 </ul>
                             </div>
@@ -215,25 +136,14 @@ function Header() {
                                 
                             </a>
                             <div className="menus mt-3">
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/Paypal">Paypal</a></li>
-                                    <li><a href="/Chase">Chase</a></li>
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                    
-                                        <li><a href="/Wells fargo">Wells fargo</a></li>
-                                        
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                    
-                                        <li><a href="/Bank Of America">Bank Of America</a></li>
-                                        
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/Capital One">Capital One</a></li>
+                                <ul className="dropdown-submenu" style={{columnCount:"4", columnGap:"2rem"}}>
+                                {
+                                        HeaderStores[3].catStores.map((item) => {
+                                            return(
+                                                <li><a href={"/"+item.storeUrlName}>{item.storeTitle}</a></li>
+                                            )
+                                        })
+                                    }
                                     
                                 </ul>
                             </div>
@@ -245,14 +155,20 @@ function Header() {
                             <br/>
                             <a className="text-center">Food</a>
                         </a>
-                        <div className="dropdown-cate-menu" style={{display:"none"}} id="dropdown-5-category">
+                        <div className="dropdown-cate-menu" id="dropdown-5-category">
                             <a href="">
                                 <strong>Food</strong>
                                 
                             </a>
                             <div className="menus mt-3">
                                 <ul className="dropdown-submenu">
-                                    
+                                {
+                                        HeaderStores[4].catStores.map((item) => {
+                                            return(
+                                                <li><a href={"/"+item.storeUrlName}>{item.storeTitle}</a></li>
+                                            )
+                                        })
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -263,14 +179,20 @@ function Header() {
                         <br/>
                         <a className="text-center">Games</a>
                         </a>
-                        <div className="dropdown-cate-menu" style={{display: "none"}} id="dropdown-6-category">
+                        <div className="dropdown-cate-menu" id="dropdown-6-category">
                             <a href="">
                                 <strong>Games</strong>
                                 
                             </a>
                             <div className="menus mt-3">
                                 <ul className="dropdown-submenu">
-                                    
+                                {
+                                        HeaderStores[5].catStores.map((item) => {
+                                            return(
+                                                <li><a href={"/"+item.storeUrlName}>{item.storeTitle}</a></li>
+                                            )
+                                        })
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -287,20 +209,14 @@ function Header() {
                                 
                             </a>
                             <div className="menus mt-3">
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/Dunham's Sports">Dunham's Sports</a></li>
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                <li><a href="/CVS Pharmacy">CVS Pharmacy</a></li>
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                <li><a href="/Dicks Sporting Goods">Dicks Sporting Goods</a></li>
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                <li><a href="/Sportsman's Warehouse">Sportsman's Warehouse</a></li>
+                                <ul className="dropdown-submenu" style={{columnCount:"4", columnGap:"2rem"}}>
+                                {
+                                        HeaderStores[6].catStores.map((item) => {
+                                            return(
+                                                <li><a href={"/"+item.storeUrlName}>{item.storeTitle}</a></li>
+                                            )
+                                        })
+                                    }
                                     
                                 </ul>
                             </div>
@@ -319,7 +235,13 @@ function Header() {
                             </a>
                             <div className="menus mt-3">
                                 <ul className="dropdown-submenu">
-                                    
+                                {
+                                        HeaderStores[7].catStores.map((item) => {
+                                            return(
+                                                <li><a href={"/"+item.storeUrlName}>{item.storeTitle}</a></li>
+                                            )
+                                        })
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -337,27 +259,14 @@ function Header() {
                                 
                             </a>
                             <div className="menus mt-3">
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/Bi-Mart">Bi-Mart</a></li>
-                                    <li><a href="/World Market">World Market</a></li>
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                    
-                                        <li><a href="/Menards">Menards</a></li>
-                                        <li><a href="/Home Depot">Home Depot</a></li>
-                                        
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                    
-                                        <li><a href="/Big Lots">Big Lots</a></li>
-                                        <li><a href="/Harbor Freight">Harbor Freight</a></li>
-                                        
-                                    
-                                </ul>
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/IKEA">IKEA</a></li>
+                                <ul className="dropdown-submenu" style={{columnCount:"4", columnGap:"2rem"}}>
+                                {
+                                        HeaderStores[8].catStores.map((item) => {
+                                            return(
+                                                <li><a href={"/"+item.storeUrlName}>{item.storeTitle}</a></li>
+                                            )
+                                        })
+                                    }
                                     
                                     
                                 </ul>
@@ -376,21 +285,24 @@ function Header() {
                                 
                             </a>
                             <div className="menus mt-3">
-                                <ul className="dropdown-submenu">
-                                    <li><a href="/Staples">Staples</a></li>
+                                <ul className="dropdown-submenu" style={{columnCount:"4", columnGap:"2rem"}}>
                                     
-                                </ul>
-                                <ul className="dropdown-submenu">
+                                    
+                                {
+                                        HeaderStores[9].catStores.map((item) => {
+                                            return(
+                                                <li><a href={"/"+item.storeUrlName}>{item.storeTitle}</a></li>
+                                            )
+                                        })
+                                    }
                                     
                                         
                                     
-                                </ul>
-                                <ul className="dropdown-submenu">
+                                
                                     
                                        
                                     
-                                </ul>
-                                <ul className="dropdown-submenu">
+                              
                                     
                                 </ul>
                             </div>

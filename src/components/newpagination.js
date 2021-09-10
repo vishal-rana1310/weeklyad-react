@@ -130,6 +130,8 @@ const NewPagination = () => {
                 </div>
                 <Helmet>
                     <meta charSet="utf-8" />
+                    <meta name="keywords" content={data.metaKeywords} />
+                    <meta name="description" content={data.metaDiscriptions} />
                     <title>{`Weekly ad - ${adname} ${data.startDate} to ${data.endDate}`}</title>
                     
                 </Helmet>

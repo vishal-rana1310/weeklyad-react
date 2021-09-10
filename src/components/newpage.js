@@ -10,6 +10,7 @@ const NewPage = () => {
     
 
     const{page} = useParams()
+  
     const [items, setItems] = useState([])
 
     let {path , url} = useRouteMatch()
@@ -38,7 +39,7 @@ const NewPage = () => {
    
     const handlePageClick = async (datas) => {
         let currentPage = datas.selected + 1;
-     const   imageUrl = url.substring(0, url.lastIndexOf("/") + 1);
+        const imageUrl = url.substring(0, url.lastIndexOf("/") + 1);
         window.location.replace(imageUrl+currentPage);
     }
     return(

@@ -1,1 +1,1 @@
-export const Baseurl = 'http://192.168.1.5:3001';
+export const Baseurl = 'https://avmnewslive.com';

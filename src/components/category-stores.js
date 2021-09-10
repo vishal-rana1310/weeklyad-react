@@ -16,6 +16,7 @@ const CategoryStores = () => {
 
     const {categoryName} = useParams();
     const [store, setStores] = useState([])
+    const [category, setCategory] = useState([])
     const [categoryPageWeeklyAd, setcategoryPageWeeklyAd] = useState([])
     useEffect(() => {
         const getStores = async () => {
@@ -26,6 +27,15 @@ const CategoryStores = () => {
         };
         
         getStores();
+        const getCategory = async () => {
+            const res = await fetch(`${Baseurl}/v1/category?catName=${categoryName}`);
+            const data = await res.json();
+            console.log(data);
+            setCategory(data[0]);
+
+        };
+        
+        getCategory();
         
         
         const getCategoryPageAds = async () => {
@@ -234,7 +244,8 @@ const CategoryStores = () => {
                 </div>
                 <Helmet>
                     <meta charSet="utf-8" />
-                    <meta name="description" content="Category wise stores"/>
+                    <meta name="description" content={category.metaDiscriptions}/>
+                    <meta name="keywords" content={category.metaKeywords}/>
                     <title>{categoryName} Stores</title>
 
                 </Helmet>

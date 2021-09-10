@@ -115,14 +115,11 @@ ul.categories > li:hover > div{
   color: #2874F0 !important;
 }
 .menus{
-  display: flex;
+  display: block;
   margin: auto;
   justify-content: space-between;
 }
-ul.dropdown-submenu{
-  width: 25%;
-  display: inline;
-}
+
 .dropdown-submenu > li > a{
   color:  rgb(121, 121, 121);
   text-decoration: none;

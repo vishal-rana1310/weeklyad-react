@@ -169,6 +169,10 @@ const Store = () => {
                 </div>
                 <Helmet>
                     <meta charSet="utf-8" />
+                    <meta name="keywords" content={storeInfo.metaKeywords} />
+                    <meta name="description" content={storeInfo.metaDiscriptions} />
+
+
                     <title>{store} Weekly Ads and Flyers</title>
 
                 </Helmet>

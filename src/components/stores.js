@@ -32,7 +32,7 @@ const Stores = () => {
                                         return(
                                             
                                                 <div className="store-name col-md-3 pt-3 text-center" style={{width: "23%"}}>
-                                                    <a href={"/"+item.storeTitle}>
+                                                    <a href={"/"+item.storeUrlName}>
                                                     <img src={item.storeLogoImg} alt="" style={{width: "80%", objectFit: "contain", height: "60%"}}/>
                                                     <p className="text-center mt-1">{item.storeTitle}</p>
                                                     </a>

@@ -27,7 +27,7 @@ class ServerAutoSuggest extends React.Component {
     // Render Each Option
     renderSuggestion = suggestion => (
         <span className="sugg-option">
-            <a href={"/"+ suggestion.storeTitle } target="_blank">
+            <a href={"/"+ suggestion.storeUrlName}>
                 <span className="icon-wrap" style={{width:"30%", paddingLeft:"10px"}}><img style={{objectFit:"contain", height:"100%"}} src={suggestion.storeLogoImg} /></span>
                 <span className="name" style={{width:"70%"}}>
                     {suggestion.storeTitle}
