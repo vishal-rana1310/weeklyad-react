@@ -10,6 +10,9 @@ import ModalTitle from 'react-bootstrap/ModalTitle'
 import ModalBody from 'react-bootstrap/ModalBody'
 import ModalFooter from 'react-bootstrap/ModalFooter'
 import Button from 'react-bootstrap/Button'
+import Verticalad from './verticalad';
+import Horizontalad from './horizontalad';
+import Horizontaldeskad from './horizontalDesktopAd';
 
 
 const CategoryStores = () => {
@@ -110,17 +113,17 @@ const CategoryStores = () => {
 
     return(
         <>
-            <div className="container-fluid pt-5 pb-5" style={{background: "#f2fdfc"}}>
+            <div className="container-fluid pt-5 pb-5" style={{background: "#F9F9F9"}}>
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-3 sidebar">
+                        <div className="col-md-3 pt-3 sidebar">
                             <div className="categorywise-store-list">
                                 <h5>{categoryName}</h5>
                                 <ul>
                                     {
                                         store.map((item) => {
                                             return(
-                                                <li><a href={"/"+item.storeTitle}>{item.storeTitle}</a></li>
+                                                <li><a href={"/"+item.storeUrlName}>{item.storeTitle}</a></li>
 
                                             )
                                         })
@@ -163,9 +166,19 @@ const CategoryStores = () => {
                                 </Modal>
                             
                             </div>
+                            <div className="ad-for-desk pt-3 mb-4" style={{position:"-webkit-sticky", position:"sticky", top:"0",}}>
+                                    <Verticalad/>
+                            </div>
                         </div>
                         <div className="col-md-6">
+                            <div className="ad-for-desk pt-3 mb-4">
+                                    <Horizontaldeskad/>
+                            </div>
+                            <div className="ad-for-mobile mb-4">
+                                    <Horizontalad/>
+                            </div>
                             <h4 className="mb-3 text-center">Best offers from category {categoryName}</h4>
+                            
                             <div className="row top-stores-row">
                                 {
                                     store.map((item) => {
@@ -185,6 +198,12 @@ const CategoryStores = () => {
                             
                             </div>
                             <br/>
+                            <div className="ad-for-desk mt-2 mb-4">
+                                <Horizontaldeskad/>
+                            </div>
+                            <div className="ad-for-mobile mb-4">
+                                <Horizontalad/>
+                            </div>
 
                             <h4 className="mb-3 text-center">Top weekly ads from top stores</h4>
                             <div className="row flyer-card-row">
@@ -221,10 +240,21 @@ const CategoryStores = () => {
                                 
                 
                             </div>
+                            <div className="ad-for-desk mt-3 mb-4">
+                                <Horizontaldeskad/>
+                            </div>
                             
                         </div>
                         <div className="col-md-3">
+                            <div className="ad-for-desk pt-3 pb-3" style={{position:"-webkit-sticky", position:"sticky", top:"0"}}>
+                                <Verticalad/>
+                            </div>
+                            <div className="ad-for-mobile mt-4 mb-4">
+                                <Horizontalad/>
+                            </div>
                         <div className="categorywise-store-list mobile-elem">
+                            
+                            
                                 <h5>{categoryName}</h5>
                                 <ul>
                                     {

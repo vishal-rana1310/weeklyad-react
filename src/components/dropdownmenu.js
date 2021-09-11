@@ -241,7 +241,7 @@ storeUrlName:	"belk"},
 {storeTitle:	"Avon",
 storeUrlName:	"avon"},
 {storeTitle:	"Bass Pro",
-storeUrlName:	"bass pro"}
+storeUrlName:	"bass-pro"}
         ]
     },
     {
@@ -256,7 +256,7 @@ storeUrlName:	"capital-one"},
 {storeTitle:	"Chase",
 storeUrlName:	"chase"},
 {storeTitle:	"Bank Of America",
-storeUrlName:	"bank of america"}
+storeUrlName:	"bank-of-america"}
         ]
     },
     {

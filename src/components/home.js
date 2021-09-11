@@ -13,10 +13,13 @@ import ModalTitle from 'react-bootstrap/ModalTitle'
 import ModalBody from 'react-bootstrap/ModalBody'
 import ModalFooter from 'react-bootstrap/ModalFooter'
 import Button from 'react-bootstrap/Button'
-
+import Verticalad from './verticalad';
+import Horizontalad from './horizontalad';
+import Horizontaldeskad from './horizontalDesktopAd';
 
 const Home = () => {
 
+    
 
     const [topStore, setTopStore] = useState([])
     const [topCategory, setTopCategory] = useState([])
@@ -100,34 +103,34 @@ const Home = () => {
     return (
         <React.Fragment>
                 
-        <div className="container-fluid pt-5" style={{background: "#f2fdfc"}}>
+        <div className="container-fluid pt-5 pb-5" style={{background: "#F9F9F9"}}>
             <div className="container carousel-container" style={{margin: "auto", justifyContent: "center"}}>
                 <div className="row">
                     <div className="col-md-3">
+                        <div className="ad-for-desk pt-3 pb-4" style={{position:"-webkit-sticky", position:"sticky", top:"0"}}>
                         
+                            <Verticalad/>
+                        
+                        
+                        </div>
                     </div>
                     <div className="col-md-6" style={{margin: "auto", justifyContent: "center"}}>
+                        <div className="ad-for-desk pt-3 mb-3">
+                            <Horizontaldeskad/>
+                        </div>
+                        <div className="ad-for-mobile mb-3">
+                            <Horizontalad/>
+                        </div>
+
                         <h4 className="mb-3 text-center">Top Weekly Ads and Flyers</h4>
                         <Carousel/>
-                        
-                          
-                    </div> 
-                    <div className="col-md-3">
-    
-                    </div>
-                    </div>
-                    
-                    
-                
-            </div>
-        </div>
-        <div className="container-fluid pt-5" style={{background: "#f2fdfc"}}>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-3">
-
-                    </div>
-                    <div className="col-md-6">
+                        <br/>
+                        <div className="ad-for-desk pt-3 mb-4">
+                            <Horizontaldeskad/>
+                        </div>
+                        <div className="ad-for-mobile mb-4">
+                            <Horizontalad/>
+                        </div>
                         <h4 className="mb-3 text-center">Top Stores of the Season</h4>
                         <div className="row top-stores-row">
                             {
@@ -145,20 +148,12 @@ const Home = () => {
                             
                             
                         </div>
-                    </div>
-                    <div className="col-md-3">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div className="container-fluid pt-5 pb-5" style={{background: "#f2fdfc"}}>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-3">
-
-                    </div>
-                    <div className="col-md-6">
+                        <div className="ad-for-desk pt-4 mb-4">
+                            <Horizontaldeskad/>
+                        </div>
+                        <div className="ad-for-mobile mb-4">
+                            <Horizontalad/>
+                        </div>
                         <h4 className="mb-3 text-center">Top Categories of the Season</h4>
                         
                         
@@ -179,9 +174,21 @@ const Home = () => {
                             
                             
                         </div>
-                    </div>
-                    <div className="col-md-3 p-2">
-                    <div className="subscription-form mobile-elem mt-3 pt-5 pb-5">
+                        <div className="ad-for-desk pt-4 mb-4">
+                            <Horizontaldeskad/>
+                        </div>
+                        <div className="ad-for-mobile mb-4">
+                            <Horizontalad/>
+                        </div>
+                        
+                          
+                    </div> 
+                    <div className="col-md-3">
+                        
+                        <div className="ad-for-desk pt-3 pb-3" style={{position:"-webkit-sticky", position:"sticky", top:"0"}}>
+                            <Verticalad/>
+                        </div>
+                        <div className="subscription-form mobile-elem mt-3 pt-5 pb-5">
                                 
                                 <i class="fa fa-envelope-o" aria-hidden="true" style={{fontSize:"100px"}}></i>
                                 <p>Subscribe to our offers</p>
@@ -215,10 +222,18 @@ const Home = () => {
                                 </Modal>
                             
                             </div>
+                            <div className="ad-for-mobile mt-4 mb-3">
+                                <Horizontalad/>
+                            </div>
                     </div>
-                </div>
+
+                    </div>
+                    
+                    
+                
             </div>
         </div>
+        
         
         </React.Fragment>)
 }

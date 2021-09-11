@@ -2,6 +2,9 @@ import {useState, useEffect} from 'react';
 import {Baseurl} from './url'
 import { useParams } from "react-router-dom";
 import {Helmet} from 'react-helmet';
+import Verticalad from './verticalad';
+import Horizontalad from './horizontalad';
+import Horizontaldeskad from './horizontalDesktopAd';
 var moment = require('moment');
 
 console.log("date",moment().format("dddd")); 
@@ -124,13 +127,22 @@ const Store = () => {
     
     return(
         <>
-            <div className="container-fluid pt-5 pb-5" style={{background: "#f2fdfc"}}>
+            <div className="container-fluid pt-5 pb-5" style={{background: "#F9F9F9"}}>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3">
+                        <div className="ad-for-desk pt-3 pb-3" style={{position:"-webkit-sticky", position:"sticky", top:"0"}}>
+                            <Verticalad/>
+                        </div>
                             
                         </div>
                         <div className="col-md-6">
+                        <div className="ad-for-desk pt-3 mb-4">
+                            <Horizontaldeskad/>
+                            </div>
+                            <div className="ad-for-mobile mt-3 mb-4">
+                            <Horizontalad/>
+                            </div>
                             <h4 className="mb-3 text-center">{storeInfo.storeTitle} Circular and weekly ads</h4>
                             
                             <div className="row flyer-card-row">
@@ -146,6 +158,12 @@ const Store = () => {
                                 
                             </div>
                             <br/>
+                            <div className="ad-for-desk mt-2 mb-4">
+                                <Horizontaldeskad/>
+                            </div>
+                            <div className="ad-for-mobile mt-3 mb-4">
+                                <Horizontalad/>
+                            </div>
                             <h4 className="text-center">{storeInfo.storeTitle}</h4>
                             <hr/>
                             <h6 style={{color: "rgb(146, 146, 146)"}}>Description</h6>
@@ -158,12 +176,23 @@ const Store = () => {
                                     <div dangerouslySetInnerHTML={{ __html: storeInfo.storeDescription }} />
                                 </div>
                             </div>
+                            <div className="ad-for-desk mt-2 mb-4">
+                                <Horizontaldeskad/>
+                            </div>
+                            <div className="ad-for-mobile mt-3 mb-4">
+                                <Horizontalad/>
+                            </div>
 
 
                             
                         </div>
                         <div className="col-md-3">
-                            
+                        <div className="ad-for-desk pt-3 pb-3" style={{position:"-webkit-sticky", position:"sticky", top:"0"}}>
+                            <Verticalad/>
+                            </div>
+                            <div className="ad-for-mobile mt-4 mb-4">
+                            <Horizontalad/>
+                            </div>
                         </div>
                     </div>
                 </div>

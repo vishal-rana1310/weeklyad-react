@@ -18,7 +18,7 @@ const Stores = () => {
     }, [])
     return(
         <React.Fragment>
-            <div className="container-fluid pt-5 pb-5" style={{background: "#f2fdfc"}}>
+            <div className="container-fluid pt-5 pb-5" style={{background: "#F9F9F9"}}>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3">

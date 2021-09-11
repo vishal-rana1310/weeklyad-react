@@ -3,7 +3,7 @@ const About = () => {
     return(
         <>
 
-            <div className="container-fluid pt-5 pb-5">
+            <div className="container-fluid pt-5 pb-5" style={{background:"#F9F9F9"}}>
                 <div className="container">
                     <div className="row" style={{margin:"auto", justifyContent:"center"}}>
                         <div className="col-ms-3">

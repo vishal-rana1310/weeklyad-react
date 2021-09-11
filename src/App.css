@@ -651,6 +651,25 @@ button.close{
 .mobile-elem{
   display: none;
 }
+
+
+
+
+/* Google Ads Space */
+
+.ad-for-mobile{
+  display: none;
+}
+.store-logo{
+  border: 1px solid rgb(228, 228, 228);
+  border-radius: 5px;
+  background: white;
+}
+
+.store-logo-mobile{
+  display: none;
+}
+
 @media only screen and (max-width: 1200px){
   ul.categories{
     justify-content: space-between;
@@ -683,6 +702,12 @@ button.close{
 }
 
 @media only screen and (max-width: 576px){
+  .store-logo-mobile{
+    display: block;
+  }
+  .store-logo-desk{
+    display: none;
+  }
   .mobile-elem{
     display: block;
   }
@@ -954,6 +979,18 @@ button.close{
     display: none !important;
   }
   
+
+
+
+  /* Google Ads for mobile */
+
+
+  .ad-for-mobile{
+    display: block;
+  }
+  .ad-for-desk{
+    display: none;
+  }
   
   
 }
