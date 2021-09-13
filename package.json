@@ -31,7 +31,6 @@
     "react-router-dom": "^5.2.1",
     "react-scripts": "4.0.3",
     "react-slick": "^0.28.1",
-    "react-snap": "^1.23.0",
     "react-spring": "^9.2.4",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3",
@@ -39,7 +38,6 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "postbuild": "react-snap",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
