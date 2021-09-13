@@ -18,12 +18,54 @@ import Horizontaldeskad from './horizontalDesktopAd';
 const CategoryStores = () => {
 
     const {categoryName} = useParams();
+    var categoryTitle = "";
     const [store, setStores] = useState([])
     const [category, setCategory] = useState([])
     const [categoryPageWeeklyAd, setcategoryPageWeeklyAd] = useState([])
+    switch (categoryName) {
+        case "grocery":
+            categoryTitle = "Grocery";
+            break;
+        case "electronics":
+            categoryTitle = "Electronics";
+            break;
+        case "fashion":
+            categoryTitle = "Fashion"
+            break;
+        case "finance":
+            categoryTitle = "Finance"
+            break;
+        case "food":
+            categoryTitle = "Food"
+            break;
+        case "games":
+            categoryTitle = "Games"
+            break;
+        case "fitness":
+            categoryTitle = "Fitness"
+            break;
+        case "entertainment":
+            categoryTitle = "Entertainment"
+            break;
+        case "home-garden":
+            categoryTitle = "Home and Garden"
+            break;
+        case "office-supplies":
+            categoryTitle = "Office Supplies"
+            break;
+        case "others":
+            categoryTitle = "Others"
+            break;
+        default:
+            break;
+    }
+
+
+
+
     useEffect(() => {
         const getStores = async () => {
-            const res = await fetch(`${Baseurl}/v1/catStore?catName=${categoryName}`);
+            const res = await fetch(`${Baseurl}/v1/catStore?catName=${categoryTitle}`);
             const data = await res.json();
             setStores(data);
 
@@ -31,7 +73,7 @@ const CategoryStores = () => {
         
         getStores();
         const getCategory = async () => {
-            const res = await fetch(`${Baseurl}/v1/category?catName=${categoryName}`);
+            const res = await fetch(`${Baseurl}/v1/category?catName=${categoryTitle}`);
             const data = await res.json();
             console.log(data);
             setCategory(data[0]);
@@ -106,6 +148,11 @@ const CategoryStores = () => {
 
 
   }
+  function toTitles(s){ 
+      return s.replace(/\w\S*/g, function(t) { 
+          return t.charAt(0).toUpperCase() + t.substr(1).toLowerCase(); 
+        });
+     }
   
 
     
@@ -118,7 +165,7 @@ const CategoryStores = () => {
                     <div className="row">
                         <div className="col-md-3 pt-3 sidebar">
                             <div className="categorywise-store-list">
-                                <h5>{categoryName}</h5>
+                                <h5>{toTitles(categoryTitle)}</h5>
                                 <ul>
                                     {
                                         store.map((item) => {
@@ -174,10 +221,10 @@ const CategoryStores = () => {
                             <div className="ad-for-desk pt-3 mb-4">
                                     <Horizontaldeskad/>
                             </div>
-                            <div className="ad-for-mobile mb-4">
+                            <div className="text-center ad-for-mobile mb-4">
                                     <Horizontalad/>
                             </div>
-                            <h4 className="mb-3 text-center">Best offers from category {categoryName}</h4>
+                            <h4 className="mb-3 text-center">Best offers from category {categoryTitle}</h4>
                             
                             <div className="row top-stores-row">
                                 {
@@ -201,7 +248,7 @@ const CategoryStores = () => {
                             <div className="ad-for-desk mt-2 mb-4">
                                 <Horizontaldeskad/>
                             </div>
-                            <div className="ad-for-mobile mb-4">
+                            <div className="text-center ad-for-mobile mb-4">
                                 <Horizontalad/>
                             </div>
 
@@ -249,13 +296,13 @@ const CategoryStores = () => {
                             <div className="ad-for-desk pt-3 pb-3" style={{position:"-webkit-sticky", position:"sticky", top:"0"}}>
                                 <Verticalad/>
                             </div>
-                            <div className="ad-for-mobile mt-4 mb-4">
+                            <div className="text-center ad-for-mobile mt-4 mb-4">
                                 <Horizontalad/>
                             </div>
                         <div className="categorywise-store-list mobile-elem">
                             
                             
-                                <h5>{categoryName}</h5>
+                                <h5>{categoryTitle}</h5>
                                 <ul>
                                     {
                                         store.map((item) => {
@@ -276,7 +323,7 @@ const CategoryStores = () => {
                     <meta charSet="utf-8" />
                     <meta name="description" content={category.metaDiscriptions}/>
                     <meta name="keywords" content={category.metaKeywords}/>
-                    <title>{categoryName} Stores</title>
+                    <title>{toTitles(categoryTitle)} Stores - Avm Flyers</title>
 
                 </Helmet>
             </div>

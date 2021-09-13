@@ -16,13 +16,13 @@ import Button from 'react-bootstrap/Button'
 import Verticalad from './verticalad';
 import Horizontalad from './horizontalad';
 import Horizontaldeskad from './horizontalDesktopAd';
+import Paginationdeskad from "./paginationAds";
 
 var moment = require('moment');
 console.log("date",moment().format("dddd")); 
 
 
 const NewPagination = () => {
-    
     const [items, setItems] = useState([])
     let {path , url} = useRouteMatch()
     const {adname} = useParams()
@@ -35,6 +35,12 @@ const NewPagination = () => {
         const getFlyers = async () => {
         
             const res = await fetch(`${Baseurl}/v1/weeklyAd?adName=${adname}&limit=1`);
+            if(res.status === 404){
+                console.log(url);
+                const direct = url.split('/')[0]
+                    window.location.replace(direct+"/error");  
+                
+            }
             const json = await res.json();
             console.log(json.data)
             setData(json.data)
@@ -142,7 +148,19 @@ const NewPagination = () => {
                                     Latest Offers
                                 </button>
                                 </a>
+                                <h5 className="mt-5">Popular Stores</h5>
+                                <div className="popular-stores-list" style={{marginLeft:"0.7rem"}}>
+                                <a href="/walgreens">Walgreens</a>
+                                <a href="/target">Target</a>
+                                <a href="/lidl">Lidl</a>
+                                <a href="/acme">Acme</a>
+                                <a href="/hyvee">Hyvee</a>
+                                <a href="/save-mart">Save Mart</a>
+                                <a href="/wegmans">Wegmans</a>
+                                
+                                </div>
                             </div>
+                            
                             <div className="ad-for-desk pt-3 pb-3" style={{position:"-webkit-sticky", position:"sticky", top:"0"}}>
                                 <Verticalad/>
                             </div>
@@ -153,8 +171,9 @@ const NewPagination = () => {
                         <div className="col-md-6" style={{margin:"auto", justifyContent:"center", marginTop:"1rem"}}>
                             <h4 className="text-center">{data.storeName} Weekly Ad</h4>
                             <p className="mb-4 text-center"> from {startDay} {data.startDate} to {endDay} {data.endDate}</p>
-                            <div className="ad-for-desk mt-2 mb-4">
-                                <Horizontaldeskad/>
+                            <div className="ad-for-desk d-flex mb-4" style={{margin:"auto", justifyContent:"space-between"}}>
+                                <Paginationdeskad/>
+                                <Paginationdeskad/>
                             </div>
                             <div className="ad-for-mobile mt-3 mb-4">
                                 <Horizontalad/>
@@ -238,7 +257,7 @@ const NewPagination = () => {
                                 </button>
                                 </a>
                             </div>
-                        <div className="subscription-form mt-3 pt-5 pb-5" style={{marginRight:"0"}}>
+                        <div className="subscription-form pt-5 pb-5" style={{marginRight:"0"}}>
                                 
                                 <i class="fa fa-envelope-o" aria-hidden="true" style={{fontSize:"100px"}}></i>
                                 <p>Subscribe to our offers</p>

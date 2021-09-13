@@ -73,7 +73,7 @@ function Footer() {
                     <div className="col-md-3 p-2">
                         <h4 style={{color: "white"}}>Subscribe to our Offers</h4>
                         <p style={{color: "rgb(211, 211, 211)"}}>Receive the latest offers by e-mail and don´t miss out on any special offer</p>
-                        <div className="subscription-form" style={{background:"none", border:"0", padding:"0"}}>
+                        <div className="subscription-form footer-form" style={{background:"none", border:"0", padding:"0"}}>
                                 
                 
                         

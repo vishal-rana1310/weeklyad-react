@@ -10,9 +10,10 @@ class Horizontalad extends Component {
     return(
         <div>
         <ins className = "adsbygoogle"
-                style = { {display:"inline-block",width:"100%",height:"300px"} }
+                style = { {display:"inline-block",width:"300px",height:"250px"} }
                 data-ad-client = "ca-pub-9441468239903088"
-                data-ad-slot = "2016817033"></ins>
+                data-ad-slot = "2016817033"
+                ></ins>
         </div>)
     }
 }

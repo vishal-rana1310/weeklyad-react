@@ -1,15 +1,17 @@
 import {useState, useEffect} from 'react';
 import {Baseurl} from './url'
-import { useParams } from "react-router-dom";
+import { useParams, useRouteMatch } from "react-router-dom";
 import {Helmet} from 'react-helmet';
 import Verticalad from './verticalad';
 import Horizontalad from './horizontalad';
 import Horizontaldeskad from './horizontalDesktopAd';
 var moment = require('moment');
 
+
 console.log("date",moment().format("dddd")); 
 const Store = () => {
     const {store} = useParams();
+    let {path , url} = useRouteMatch()
     const [ads, setAds] = useState([]);
     const [storeInfo, setStoreInfo] = useState([])
     console.log(storeInfo);
@@ -22,6 +24,11 @@ const Store = () => {
     useEffect(() => {
         const getAds = async () => {
             const res = await fetch(`${Baseurl}/v1/weeklyAd/byStore?storeName=${store}`);
+            if(res.status === 404){
+                const direct = url.substring(0, url.lastIndexOf("/") + 0);
+                    window.location.replace(direct+"/error");  
+                
+            }
             const data = await res.json();
             console.log(data);
             setAds(data);
@@ -42,7 +49,7 @@ const Store = () => {
         var localDate = moment(localDate,"DD/MM/YYYY");
         var startDate = moment(startDate,"DD/MM/YYYY");
         var endDate = moment(endDate,"DD/MM/YYYY");
-        if(localDate > startDate) {
+        if(localDate >= startDate) {
             if(localDate > endDate) {
                 return(
                     <div className="col-md-4 p-2">
@@ -124,11 +131,17 @@ const Store = () => {
         }
     }
 
+    function toTitles(s){ 
+        return s.replace(/\w\S*/g, function(t) { 
+            return t.charAt(0).toUpperCase() + t.substr(1).toLowerCase(); 
+          });
+       }
     
     return(
         <>
             <div className="container-fluid pt-5 pb-5" style={{background: "#F9F9F9"}}>
                 <div className="container">
+
                     <div className="row">
                         <div className="col-md-3">
                         <div className="ad-for-desk pt-3 pb-3" style={{position:"-webkit-sticky", position:"sticky", top:"0"}}>
@@ -140,7 +153,7 @@ const Store = () => {
                         <div className="ad-for-desk pt-3 mb-4">
                             <Horizontaldeskad/>
                             </div>
-                            <div className="ad-for-mobile mt-3 mb-4">
+                            <div className="text-center ad-for-mobile mt-3 mb-4">
                             <Horizontalad/>
                             </div>
                             <h4 className="mb-3 text-center">{storeInfo.storeTitle} Circular and weekly ads</h4>
@@ -161,7 +174,7 @@ const Store = () => {
                             <div className="ad-for-desk mt-2 mb-4">
                                 <Horizontaldeskad/>
                             </div>
-                            <div className="ad-for-mobile mt-3 mb-4">
+                            <div className="text-center ad-for-mobile mt-3 mb-4">
                                 <Horizontalad/>
                             </div>
                             <h4 className="text-center">{storeInfo.storeTitle}</h4>
@@ -179,7 +192,7 @@ const Store = () => {
                             <div className="ad-for-desk mt-2 mb-4">
                                 <Horizontaldeskad/>
                             </div>
-                            <div className="ad-for-mobile mt-3 mb-4">
+                            <div className="text-center ad-for-mobile mt-3 mb-4">
                                 <Horizontalad/>
                             </div>
 
@@ -190,7 +203,7 @@ const Store = () => {
                         <div className="ad-for-desk pt-3 pb-3" style={{position:"-webkit-sticky", position:"sticky", top:"0"}}>
                             <Verticalad/>
                             </div>
-                            <div className="ad-for-mobile mt-4 mb-4">
+                            <div className="text-center ad-for-mobile mt-4 mb-4">
                             <Horizontalad/>
                             </div>
                         </div>
@@ -202,7 +215,7 @@ const Store = () => {
                     <meta name="description" content={storeInfo.metaDiscriptions} />
 
 
-                    <title>{store} Weekly Ads and Flyers</title>
+                    <title>{toTitles(store)} Weekly Ads and Flyers</title>
 
                 </Helmet>
             </div>

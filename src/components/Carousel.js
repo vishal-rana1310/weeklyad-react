@@ -29,6 +29,12 @@ function SampleNextArrow(props) {
       />
     );
   }
+
+  function toTitles(s){ 
+    return s.replace(/\w\S*/g, function(t) { 
+        return t.charAt(0).toUpperCase() + t.substr(1).toLowerCase(); 
+      });
+   }
  const Carousel = () => {
     const [image, setImage] = useState([])
     useEffect(() => {
@@ -102,7 +108,7 @@ function SampleNextArrow(props) {
                                         </div>
                                         <div className="banner-detail pt-3 text-center">
                                             <p style={{margin: "0"}}>
-                                                <b>{item.storeName}</b>
+                                                <b>{toTitles(item.storeName)}</b>
                                                 
                                             </p>
                                             <span style={{fontSize:"12px"}}>Weekly Ad</span><br/>

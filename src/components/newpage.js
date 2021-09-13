@@ -16,6 +16,7 @@ import Button from 'react-bootstrap/Button'
 import Verticalad from './verticalad';
 import Horizontalad from './horizontalad';
 import Horizontaldeskad from './horizontalDesktopAd';
+import Paginationdeskad from "./paginationAds";
 const NewPage = () => {
     
 
@@ -136,7 +137,18 @@ const NewPage = () => {
                                     Latest Offers
                                 </button>
                                 </a>
-                            </div>
+                                <h5 className="mt-5">Popular Stores</h5>
+                                <div className="popular-stores-list" style={{marginLeft:"0.7rem"}}>
+                                <a href="/walgreens">Walgreens</a>
+                                <a href="/target">Target</a>
+                                <a href="/lidl">Lidl</a>
+                                <a href="/acme">Acme</a>
+                                <a href="/hyvee">Hyvee</a>
+                                <a href="/save-mart">Save Mart</a>
+                                <a href="/wegmans">Wegmans</a>
+                                
+                                </div>
+                        </div>
 
                             
                             <div className="ad-for-desk pt-3 pb-3" style={{position:"-webkit-sticky", position:"sticky", top:"0"}}>
@@ -147,11 +159,12 @@ const NewPage = () => {
                         <div className="col-md-6" style={{margin:"auto", justifyContent:"center", marginTop:"1rem"}}>
                             <h4 className="text-center">{data.storeName} Weekly Ad</h4>
                             <p className="mb-4 text-center"> from {data.startDate} to {data.endDate}</p>
-                            <div className="ad-for-desk mt-2 mb-4">
-                                <Horizontalad/>
+                            <div className="ad-for-desk d-flex mb-4" style={{margin:"auto", justifyContent:"space-between"}}>
+                                <Paginationdeskad/>
+                                <Paginationdeskad/>
                             </div>
-                            <div className="ad-for-mobile mt-3 mb-4">
-                                <Horizontaldeskad/>
+                            <div className="text-center ad-for-mobile mt-3 mb-4">
+                                <Horizontalad/>
                             </div>
                             <ReactPaginate
                                 previousLabel = {'Prev'}
@@ -192,7 +205,7 @@ const NewPage = () => {
                             <div className="ad-for-desk mt-2 mb-4">
                                 <Horizontaldeskad/>
                             </div>
-                            <div className="ad-for-mobile mt-3 mb-4">
+                            <div className="text-center ad-for-mobile mt-3 mb-4">
                                 <Horizontalad/>
                             </div>
                             <ReactPaginate
@@ -265,7 +278,7 @@ const NewPage = () => {
                                 </Modal>
                             
                             </div>
-                            <div className="ad-for-mobile mt-3 mb-4">
+                            <div className="text-center ad-for-mobile mt-3 mb-4">
                                 <Horizontalad/>
                             </div>    
                         <div className="ad-for-desk pt-3 pb-3" style={{position:"-webkit-sticky", position:"sticky", top:"0"}}>

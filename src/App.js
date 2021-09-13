@@ -16,6 +16,7 @@ import ServerAutoSuggest from './components/storeSuggestions'
 import About from './components/About';
 import Terms from './components/Terms';
 import Privacy from './components/privacy';
+import Error from './components/error';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
     <Switch>
     <Route exact path="/about" component={About} />
     <Route exact path="/terms" component={Terms} />
+    <Route exact path="/error" component={Error} />
     <Route exact path="/privacy-policy" component={Privacy} />
     <Route exact path="/" component={Home} />
     <Route exact path="/stores" component={Stores} />

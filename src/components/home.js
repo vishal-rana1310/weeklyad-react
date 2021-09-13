@@ -22,10 +22,9 @@ const Home = () => {
     
 
     const [topStore, setTopStore] = useState([])
-    const [topCategory, setTopCategory] = useState([])
     useEffect(() => {
         const getTopStores = async () => {
-            const res = await fetch(`${Baseurl}/v1/popstore`);
+            const res = await fetch(`${Baseurl}/v1/popstore?limit=12`);
             const data = await res.json();
             
             
@@ -34,14 +33,6 @@ const Home = () => {
 
         };
         getTopStores();
-        const getTopCategories = async () => {
-            const res = await fetch(`${Baseurl}/v1/popcategory`);
-            const topCatData = await res.json();
-            
-            
-            setTopCategory(topCatData);
-        }
-        getTopCategories();
     }, [])
     
     let emailInput  = React.createRef();
@@ -118,7 +109,7 @@ const Home = () => {
                         <div className="ad-for-desk pt-3 mb-3">
                             <Horizontaldeskad/>
                         </div>
-                        <div className="ad-for-mobile mb-3">
+                        <div className="text-center ad-for-mobile mb-3">
                             <Horizontalad/>
                         </div>
 
@@ -128,7 +119,7 @@ const Home = () => {
                         <div className="ad-for-desk pt-3 mb-4">
                             <Horizontaldeskad/>
                         </div>
-                        <div className="ad-for-mobile mb-4">
+                        <div className="ad-for-mobile text-center mb-4">
                             <Horizontalad/>
                         </div>
                         <h4 className="mb-3 text-center">Top Stores of the Season</h4>
@@ -151,33 +142,70 @@ const Home = () => {
                         <div className="ad-for-desk pt-4 mb-4">
                             <Horizontaldeskad/>
                         </div>
-                        <div className="ad-for-mobile mb-4">
+                        <div className="text-center ad-for-mobile mb-4">
                             <Horizontalad/>
                         </div>
                         <h4 className="mb-3 text-center">Top Categories of the Season</h4>
                         
                         
                         <div className="row top-categories-row top-stores-row">
-
-                            {
-                                topCategory.map((item) => {
-                                    return(
-                                        <div className="col-md-3 store pt-2 text-center" style={{width: "23%"}}>
-                                            <a href={"/categories/" + item.cateTitle}>
-                                                <img src={item.logoLink} alt="" style={{width: "80%", objectFit: "contain", height: "60%"}}/>
-                                                <p className="text-center mt-1">{item.cateTitle}</p>
-                                            </a>
-                                        </div>
-                                    )
-                                })
-                            }
+                            <div className="col-md-3 store pt-2 text-center" style={{width: "23%"}}>
+                                <a href="/categories/home-garden">
+                                    <img src="/images/home.webp" alt="" style={{width: "80%", objectFit: "contain", height: "60%"}}/>
+                                        <p className="text-center mt-1">Home, Garden</p>
+                                </a>
+                            </div>
+                            <div className="col-md-3 store pt-2 text-center" style={{width: "23%"}}>
+                                <a href="/categories/office-supplies">
+                                    <img src="/images/office.webp" alt="" style={{width: "80%", objectFit: "contain", height: "60%"}}/>
+                                        <p className="text-center mt-1">Office Supplies</p>
+                                </a>
+                            </div>
+                            <div className="col-md-3 store pt-2 text-center" style={{width: "23%"}}>
+                                <a href="/categories/food">
+                                    <img src="/images/Food-01-01.webp" alt="" style={{width: "80%", objectFit: "contain", height: "60%"}}/>
+                                        <p className="text-center mt-1">Food</p>
+                                </a>
+                            </div>
+                            <div className="col-md-3 store pt-2 text-center" style={{width: "23%"}}>
+                                <a href="/categories/electronics">
+                                    <img src="/images/Electronics-01-01.webp" alt="" style={{width: "80%", objectFit: "contain", height: "60%"}}/>
+                                        <p className="text-center mt-1">Electronics</p>
+                                </a>
+                            </div>
+                            
+                            <div className="col-md-3 store pt-2 text-center" style={{width: "23%"}}>
+                                <a href="/categories/fitness">
+                                    <img src="/images/Fitness-01-01.webp" alt="" style={{width: "80%", objectFit: "contain", height: "60%"}}/>
+                                        <p className="text-center mt-1">Fitness</p>
+                                </a>
+                            </div>
+                            <div className="col-md-3 store pt-2 text-center" style={{width: "23%"}}>
+                                <a href="/categories/finance">
+                                    <img src="/images/Finance-01-01.webp" alt="" style={{width: "80%", objectFit: "contain", height: "60%"}}/>
+                                        <p className="text-center mt-1">Finance</p>
+                                </a>
+                            </div>
+                            <div className="col-md-3 store pt-2 text-center" style={{width: "23%"}}>
+                                <a href="/categories/grocery">
+                                    <img src="/images/Supermarts-01-01.webp" alt="" style={{width: "80%", objectFit: "contain", height: "60%"}}/>
+                                        <p className="text-center mt-1">Grocery</p>
+                                </a>
+                            </div>
+                            <div className="col-md-3 store pt-2 text-center" style={{width: "23%"}}>
+                                <a href="/categories/fashion">
+                                    <img src="/images/Fashion.webp" alt="" style={{width: "80%", objectFit: "contain", height: "60%"}}/>
+                                        <p className="text-center mt-1">Fashion</p>
+                                </a>
+                            </div>
+                            
                             
                             
                         </div>
                         <div className="ad-for-desk pt-4 mb-4">
                             <Horizontaldeskad/>
                         </div>
-                        <div className="ad-for-mobile mb-4">
+                        <div className="text-center ad-for-mobile mb-4">
                             <Horizontalad/>
                         </div>
                         
@@ -222,7 +250,7 @@ const Home = () => {
                                 </Modal>
                             
                             </div>
-                            <div className="ad-for-mobile mt-4 mb-3">
+                            <div className="text-center ad-for-mobile mt-4 mb-3">
                                 <Horizontalad/>
                             </div>
                     </div>
