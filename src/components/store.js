@@ -56,7 +56,7 @@ const Store = () => {
                         <a href={"/"+store+"/"+item.adTitle}>
                             <div className="flyer-card">
                                 <div className="flyer-img">
-                                    <img className="expried-tag" src="/images/expired.png" alt="" style={{width:"100px", zIndex:"10"}}></img> 
+                                    <img className="expried-tag" src="/images/expired.webp" alt="" style={{width:"100px", zIndex:"10"}}></img> 
                                     <a href={"/"+store+"/"+item.adTitle}>
                                         <img src={item.prevImgLink} alt="" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "left", opacity:"0.5"}}/>
                                     </a>
@@ -109,7 +109,7 @@ const Store = () => {
                     <a href={"/"+store+"/"+item.adTitle}>
                         <div className="flyer-card" style={{opacity:"1"}}>
                             <div className="flyer-img">
-                            <img className="expried-tag" src="/images/upcoming.png" alt="" style={{width:"100px"}}></img> 
+                            <img className="expried-tag" src="/images/upcoming.webp" alt="" style={{width:"100px"}}></img> 
                                 <a href={"/"+store+"/"+item.adTitle}>
                                     <img src={item.prevImgLink} alt="" style={{width: "100%", height: "100%", objectFit: "cover", objectPosition: "left"}}/>
                                 </a>
